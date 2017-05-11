@@ -83,6 +83,7 @@
                 locale: "auto",
                 panelLabel: "Subscribe For",
                 token: (token) => {
+                    $.LoadingOverlay("show");
                     this.stripeToken = token.id;
                     this.stripeEmail = token.email;
 

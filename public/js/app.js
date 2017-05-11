@@ -1731,12 +1731,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             locale: "auto",
             panelLabel: "Subscribe For",
             token: function token(_token) {
+                $.LoadingOverlay("show");
                 _this.stripeToken = _token.id;
                 _this.stripeEmail = _token.email;
 
-                axios.post('/register', _this.$data).then(function () {
+                axios.post('/register', _this.$data).then(function (response) {
                     window.location.href = '/';
-                }).catch(function () {});
+                }).catch(function (error) {});
             }
         });
     },

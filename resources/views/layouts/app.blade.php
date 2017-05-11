@@ -89,5 +89,6 @@
     <!-- Scripts -->
     <script src="https://checkout.stripe.com/checkout.js"></script>
     <script src="{{ asset('js/app.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.loadingoverlay/latest/loadingoverlay.min.js"></script>
 </body>
 </html>
