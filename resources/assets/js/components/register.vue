@@ -5,35 +5,47 @@
             <form class="form-horizontal" role="form" method="POST" action="/register">
                 <input type="hidden" name="stripeToken" v-model="stripeToken">
                 <input type="hidden" name="stripeEmail" v-model="stripeEmail">
-                <div class="form-group">
+                <div class="form-group" :class="{ 'has-error': errors.has('username') }">
                     <label for="username" class="col-md-4 control-label">Username</label>
 
                     <div class="col-md-6">
-                        <input id="username" type="text" class="form-control" name="username" v-model="username" required autofocus>
+                        <input id="username" type="text" class="form-control" name="username" v-model="username" required autofocus @keydown="errors.clear('username')">
                     </div>
+
+                    <span class="help-block" v-if="errors.has('username')">
+                        <strong v-text="errors.get('username')"></strong>
+                    </span>
                 </div>
 
-                <div class="form-group">
+                <div class="form-group" :class="{ 'has-error': errors.has('email') }">
                     <label for="email" class="col-md-4 control-label">E-Mail Address</label>
 
                     <div class="col-md-6">
-                        <input id="email" type="email" class="form-control" name="email" v-model="email" required>
+                        <input id="email" type="email" class="form-control" name="email" v-model="email" required @keydown="errors.clear('email')">
                     </div>
+
+                    <span class="help-block" v-if="errors.has('email')">
+                        <strong v-text="errors.get('email')"></strong>
+                    </span>
                 </div>
 
-                <div class="form-group">
+                <div class="form-group" :class="{ 'has-error': errors.has('password') }">
                     <label for="password" class="col-md-4 control-label">Password</label>
 
                     <div class="col-md-6">
-                        <input id="password" type="password" class="form-control" name="password" v-model="password" required>
+                        <input id="password" type="password" class="form-control" name="password" v-model="password" required @keydown="errors.clear('password')">
                     </div>
+
+                    <span class="help-block" v-if="errors.has('password')">
+                        <strong v-text="errors.get('password')"></strong>
+                    </span>
                 </div>
 
                 <div class="form-group">
                     <label for="password-confirm" class="col-md-4 control-label">Confirm Password</label>
 
                     <div class="col-md-6">
-                        <input id="password-confirm" type="password" class="form-control" name="password_confirmation" v-model="password_confirmation" required>
+                        <input id="password-confirm" type="password" class="form-control" name="password_confirmation" v-model="password_confirmation" required @keydown="errors.clear('password')">
                     </div>
                 </div>
 
@@ -52,7 +64,7 @@
 
                 <div class="form-group">
                     <div class="col-md-6 col-md-offset-4">
-                        <button type="submit" @click.prevent="register" class="btn btn-primary">
+                        <button type="submit" @click.prevent="register" class="btn btn-primary" :disabled="errors.any()">
                             Register
                         </button>
                     </div>
@@ -63,6 +75,7 @@
 </template>
 
 <script>
+    import Errors from '../classes/Errors';
     export default {
         props: ['plans'],
         data() {
@@ -73,7 +86,8 @@
                 password_confirmation: '',
                 stripeEmail: '',
                 stripeToken: '',
-                plan: 1
+                plan: 1,
+                errors: new Errors()
             };
         },
         created() {
@@ -91,8 +105,9 @@
                         .then((response) => {
                             window.location.href = '/';
                         }).catch((error) => {
-
-                    })
+                            $.LoadingOverlay('hide');
+                            this.errors.record(error.response.data)
+                        })
                 }
             });
         },
@@ -103,8 +118,10 @@
                 this.stripe.open({
                     name: plan.name,
                     description: plan.description,
+                    locale: "auto",
                     zipCode: true,
-                    amount: plan.price
+                    amount: plan.price,
+                    billingAddress: true
                 })
             },
 
