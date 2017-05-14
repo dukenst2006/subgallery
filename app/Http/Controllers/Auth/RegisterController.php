@@ -59,14 +59,20 @@ class RegisterController extends Controller
      *
      *
      * @param Request $request
+     * @return User
      */
     public function register(Request $request)
     {
         $this->validator($request->all())->validate();
 
-        event(new Registered($user = $this->create($request->all())));
+        $user = $this->create($request->all());
 
-        $this->guard()->login($user);
+        if (empty($user->username)) {
+            return $user;
+        } else {
+            event(new Registered($user));
+            $this->guard()->login($user);
+        }
     }
 
     /**
@@ -92,18 +98,22 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        $user = User::create([
-            'username' => $data['username'],
-            'email' => $data['email'],
-            'password' => bcrypt($data['password']),
-        ]);
-        $plan = Plan::find($data['plan']);
-        $token = $data['stripeToken'];
-
-        $user->newSubscription($plan->name, $plan->name)
-            ->create($token, [
-                'email' => $user->email
+        try {
+            $user = User::create([
+                'username' => $data['username'],
+                'email' => $data['email'],
+                'password' => bcrypt($data['password']),
             ]);
+            $plan = Plan::find($data['plan']);
+            $token = $data['stripeToken'];
+
+            $user->newSubscription($plan->name, $plan->name)
+                ->create($token, [
+                    'email' => $user->email
+                ]);
+        } catch (\Exception $e) {
+            return response()->json(['status' => [$e->getMessage()]], 422);
+        }
 
         return $user;
     }

@@ -1721,6 +1721,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -32218,8 +32226,24 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         _vm.register($event)
       }
     }
-  }, [_vm._v("\n                        Register\n                    ")])])])])])])
-},staticRenderFns: []}
+  }, [_vm._v("\n                        Register\n                    ")])])]), _vm._v(" "), (_vm.errors.has('status')) ? _c('div', {
+    staticClass: "form-group"
+  }, [_c('div', {
+    staticClass: "col-md-6 col-md-offset-4"
+  }, [_c('div', {
+    staticClass: "alert alert-danger"
+  }, [_c('p', {
+    domProps: {
+      "textContent": _vm._s(_vm.errors.get('status'))
+    }
+  }), _vm._v(" "), _vm._m(0)])])]) : _vm._e()])])])
+},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('p', [_vm._v("Please "), _c('a', {
+    attrs: {
+      "href": "/login"
+    }
+  }, [_vm._v("Login")]), _vm._v(" and update your card details to activate your account.")])
+}]}
 module.exports.render._withStripped = true
 if (false) {
   module.hot.accept()
