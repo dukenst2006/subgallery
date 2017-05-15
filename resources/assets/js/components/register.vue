@@ -111,7 +111,7 @@
 
                     axios.post('/register', this.$data)
                         .then((response) => {
-                            window.location.href = '/';
+                            window.location.href = '/home';
                         }).catch((error) => {
                             $.LoadingOverlay('hide');
                             this.errors.record(error.response.data)

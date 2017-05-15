@@ -1759,7 +1759,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 _this.stripeEmail = _token.email;
 
                 axios.post('/register', _this.$data).then(function (response) {
-                    window.location.href = '/';
+                    window.location.href = '/home';
                 }).catch(function (error) {
                     $.LoadingOverlay('hide');
                     _this.errors.record(error.response.data);
