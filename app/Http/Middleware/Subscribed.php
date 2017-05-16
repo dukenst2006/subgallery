@@ -21,7 +21,7 @@ class Subscribed
             ! $request->user()->subscribed('premium')) {
             if (Auth::check()) {
                 // This user has signed up but membership has expired
-                return redirect('account');
+                return redirect('settings/subscription/card');
             } else {
                 // This user is not a paying customer...
                 return redirect('billing');
