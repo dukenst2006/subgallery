@@ -16,7 +16,7 @@ class Subscribed
      */
     public function handle($request, Closure $next)
     {
-        if ($request->user() && ! $request->user()->subscribed('main')) {
+        if ($request->user() && ! $request->user()->subscribed('primary')) {
             // This user has signed up but membership has expired
             return redirect('settings/subscription/card');
         }

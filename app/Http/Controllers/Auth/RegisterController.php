@@ -107,7 +107,7 @@ class RegisterController extends Controller
             $plan = Plan::find($data['plan']);
             $token = $data['stripeToken'];
 
-            $user->newSubscription($plan->name, $plan->name)
+            $user->newSubscription('primary', $plan->name)
                 ->create($token, [
                     'email' => $user->email
                 ]);
