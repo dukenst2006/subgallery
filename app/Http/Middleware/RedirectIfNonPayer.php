@@ -16,7 +16,9 @@ class RedirectIfNonPayer
      */
     public function handle($request, Closure $next)
     {
-        if ($request->user() && ! $request->user()->subscribed('main')) {
+        if ($request->user() &&
+            ! $request->user()->subscribed('subscriber') ||
+            ! $request->user()->subscribed('premium')) {
             if (Auth::check()) {
                 // This user has signed up but membership has expired
             } else {
