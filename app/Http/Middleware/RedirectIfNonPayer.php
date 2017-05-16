@@ -21,6 +21,7 @@ class RedirectIfNonPayer
             ! $request->user()->subscribed('premium')) {
             if (Auth::check()) {
                 // This user has signed up but membership has expired
+                return redirect('account');
             } else {
                 // This user is not a paying customer...
                 return redirect('billing');
