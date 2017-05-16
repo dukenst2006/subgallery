@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use Illuminate\Http\Request;
 
 class SettingsController extends Controller
@@ -22,6 +23,9 @@ class SettingsController extends Controller
      */
     public function card()
     {
+        $subscribed = User::find(5)->subscribed('premium');
+        dd($subscribed);
+
         return view('settings.subscription.card');
     }
 }

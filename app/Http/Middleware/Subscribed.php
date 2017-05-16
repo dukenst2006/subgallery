@@ -18,14 +18,10 @@ class Subscribed
     {
         if ($request->user() &&
             ! $request->user()->subscribed('subscriber') ||
-            ! $request->user()->subscribed('premium')) {
-            if (Auth::check()) {
-                // This user has signed up but membership has expired
-                return redirect('settings/subscription/card');
-            } else {
-                // This user is not a paying customer...
-                return redirect('billing');
-            }
+            ! $request->user()->subscribed('premium'))
+        {
+            // This user has signed up but membership has expired
+            return redirect('settings/subscription/card');
         }
 
         return $next($request);
