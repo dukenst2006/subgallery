@@ -25,4 +25,9 @@ class SettingsController extends Controller
     {
         return view('settings.subscription.card');
     }
+
+    public function upgrade()
+    {
+        return view('settings.subscription.upgrade');
+    }
 }
