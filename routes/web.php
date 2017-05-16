@@ -18,6 +18,8 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/premium', 'HomeController@premium')->name('premium');
 Route::get('/settings/subscription/card', 'SettingsController@card');
+Route::get('/settings/subscription/upgrade', 'SettingsController@upgrade');
 
 Route::post('stripe/webhook', 'Auth\WebhookController@handleWebhook');
