@@ -17,6 +17,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home')->middleware('paid');
+Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/settings/subscription/card', 'SettingsController@card');
 
 Route::post('stripe/webhook', 'Auth\WebhookController@handleWebhook');
