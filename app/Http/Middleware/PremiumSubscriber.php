@@ -17,7 +17,7 @@ class PremiumSubscriber
     {
         if ($request->user() && ! $request->user()->subscribed('primary', 'premium')) {
             // This user isn't a premium subscriber
-            return redirect('settings/subscription/upgrade');
+            return redirect('settings/subscription/plan');
         }
 
         return $next($request);

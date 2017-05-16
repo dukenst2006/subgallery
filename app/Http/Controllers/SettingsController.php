@@ -13,7 +13,12 @@ class SettingsController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
-        $this->middleware('subscribed')->except('card');
+        $this->middleware('subscribed')->except('account', 'card');
+    }
+
+    public function account()
+    {
+        return view('settings.account');
     }
 
     /**
@@ -23,11 +28,26 @@ class SettingsController extends Controller
      */
     public function card()
     {
-        return view('settings.subscription.card');
+        return view('settings.billing.card');
     }
 
-    public function upgrade()
+    public function invoices()
     {
-        return view('settings.subscription.upgrade');
+        return view('settings.billing.invoices');
+    }
+
+    public function plan()
+    {
+        return view('settings.subscription.plan');
+    }
+
+    public function cancel()
+    {
+        return view('settings.subscription.cancel');
+    }
+
+    public function resume()
+    {
+        return view('settings.subscription.resume');
     }
 }
