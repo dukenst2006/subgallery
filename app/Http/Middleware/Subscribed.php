@@ -17,7 +17,7 @@ class Subscribed
     public function handle($request, Closure $next)
     {
         if ($request->user() &&
-            ! $request->user()->subscribed('subscriber') ||
+//            ! $request->user()->subscribed('subscriber') ||
             ! $request->user()->subscribed('premium'))
         {
             // This user has signed up but membership has expired
