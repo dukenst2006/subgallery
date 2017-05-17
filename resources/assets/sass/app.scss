@@ -29,8 +29,9 @@
   &:not(:last-child) {
     border-right: 1px solid rgba(#d3e0e9, .2); }
 }
-.nav-item a {
+a.nav-item {
   text-decoration: none;
+  color: #555;
   padding: 0;
 }
 .vertical-align,
