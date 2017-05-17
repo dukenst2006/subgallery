@@ -15,11 +15,11 @@
   -ms-overflow-style: -ms-autohiding-scrollbar;
   margin-bottom: 20px;
   border-radius: 4px;
+  background-color: #fff;
   border: 1px solid #d3e0e9;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
 }
 .horizontal-scroll nav {
-  background-color: #fff;
   font-size: 0;
   border-radius: 4px;
 }
@@ -39,6 +39,12 @@
   &:not(:last-child) {
     border-right: 1px solid rgba(#d3e0e9, .2);
   }
+}
+.nav-item.active {
+  z-index: 2;
+  color: #fff;
+  background-color: #3097D1;
+  border-color: #3097D1;
 }
 a.nav-item {
   text-decoration: none;
