@@ -7,3 +7,18 @@
 
 // Bootstrap
 @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+
+.horizontal-scroll {
+  white-space: nowrap;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+}
+.nav-item {
+  padding: 10px 15px;
+}
+.vertical-align,
+.nav-item {
+  display: inline-block;
+  vertical-align: middle;
+}
