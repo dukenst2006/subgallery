@@ -7,7 +7,7 @@ use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class UpdateSettingController extends Controller
+class UpdateSettingsController extends Controller
 {
     public function username(UpdateUsername $request)
     {
