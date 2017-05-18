@@ -12,7 +12,7 @@ class UpdateSettingsController extends Controller
 {
     public function username(UpdateUsername $request)
     {
-        dd($request);
+        dd($request->username);
         $user = Auth::user();
         $user->username = $request->username;
         $user->save();
