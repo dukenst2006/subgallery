@@ -7,7 +7,7 @@
             @include('settings.particals.sidemenu')
         </div>
         <div class="col-md-10">
-            <update-username></update-username>
+            <update-username :user_id="{{ auth()->id() }}"></update-username>
         </div>
     </div>
 </div>

@@ -31,6 +31,7 @@
 <script>
     import Errors from '../../classes/Errors';
     export default {
+        props: ['user_id'],
         data() {
             return {
                 username: '',
@@ -43,12 +44,14 @@
                 let vm = this;
                 vm.load = true;
                 axios.post('/api/settings/account/update/username', {
-                    username: vm.username
+                    username: vm.username,
+                    id: vm.user_id
                 }).then(() => {
                     vm.load = false;
+                    vm.username = '';
                     swal(
-                        'Enquiry Submitted!',
-                        'Your enquiry has been submitted! DuShaun will get back to you soon.',
+                        'Updated!',
+                        'Your username has successfully been updated',
                         'success'
                     );
                 }).catch((error) => {
