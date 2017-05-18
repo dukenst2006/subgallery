@@ -6,7 +6,9 @@
         <div class="col-md-2">
             @include('settings.particals.sidemenu')
         </div>
-        <update-username></update-username>
+        <div class="col-md-10">
+            <update-username></update-username>
+        </div>
     </div>
 </div>
 @endsection
