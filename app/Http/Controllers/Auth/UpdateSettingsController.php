@@ -14,7 +14,7 @@ class UpdateSettingsController extends Controller
         $authUser = $request->user();
         $newUsername = $request->username;
 
-        $id = $authUser->id;
+        $id = $authUser['id'];
         $user = User::find($id)->first();
         $user->username = $newUsername;
         $user->save();
