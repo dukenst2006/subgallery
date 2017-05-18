@@ -41,15 +41,18 @@
         methods: {
             updateUsername() {
                 let vm = this;
+                vm.load = true;
                 axios.post('/api/settings/account/update/username', {
                     username: vm.username
                 }).then(() => {
+                    vm.load = false;
                     swal(
                         'Enquiry Submitted!',
                         'Your enquiry has been submitted! DuShaun will get back to you soon.',
                         'success'
                     );
                 }).catch((error) => {
+                    vm.load = false;
                     vm.errors.record(error.response.data);
                 })
             }

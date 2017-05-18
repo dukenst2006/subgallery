@@ -1990,11 +1990,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     methods: {
         updateUsername: function updateUsername() {
             var vm = this;
+            vm.load = true;
             axios.post('/api/settings/account/update/username', {
                 username: vm.username
             }).then(function () {
+                vm.load = false;
                 swal('Enquiry Submitted!', 'Your enquiry has been submitted! DuShaun will get back to you soon.', 'success');
             }).catch(function (error) {
+                vm.load = false;
                 vm.errors.record(error.response.data);
             });
         }
