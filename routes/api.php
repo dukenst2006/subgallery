@@ -16,3 +16,13 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::group(['prefix' => 'settings'], function () {
+    Route::group(['prefix' => 'account'], function () {
+        Route::group(['prefix' => 'update'], function () {
+            Route::post('username', 'Auth\UpdateSettingsController@username');
+            Route::post('email', 'Auth\UpdateSettingsController@email');
+            Route::post('password', 'Auth\UpdateSettingsController@password');
+        });
+    });
+});
