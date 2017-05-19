@@ -57,6 +57,7 @@ class UpdateSettingsController extends Controller
 
     /**
      * Update user's card credentials
+     * TODO Email Notification to user
      *
      * @param Request $request
      * @return \Illuminate\Http\JsonResponse
