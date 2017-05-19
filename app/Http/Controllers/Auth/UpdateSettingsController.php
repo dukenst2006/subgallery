@@ -7,6 +7,7 @@ use App\Http\Requests\UpdatePassword;
 use App\Http\Requests\UpdateUsername;
 use App\User;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
 class UpdateSettingsController extends Controller
@@ -51,6 +52,24 @@ class UpdateSettingsController extends Controller
             $user->save();
         } else {
             return response()->json(["old_password" => ["The old password given doesn't match out copy"]], 422);
+        }
+    }
+
+    /**
+     * Update user's card credentials
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function card(Request $request)
+    {
+        try {
+            $user = User::find($request->id);
+            $token = $request->stripeToken;
+
+            $user->updateCard($token);
+        } catch (\Exception $e) {
+            return response()->json(['status' => [$e->getMessage()]], 422);
         }
     }
 }

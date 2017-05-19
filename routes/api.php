@@ -25,4 +25,10 @@ Route::group(['prefix' => 'settings'], function () {
             Route::post('password', 'Auth\UpdateSettingsController@password');
         });
     });
+
+    Route::group(['prefix' => 'billing'], function () {
+        Route::group(['prefix' => 'update'], function () {
+            Route::post('card', 'Auth\UpdateSettingsController@card');
+        });
+    });
 });
