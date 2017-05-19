@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 43);
+/******/ 	return __webpack_require__(__webpack_require__.s = 49);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -73,7 +73,7 @@
 "use strict";
 
 
-var bind = __webpack_require__(7);
+var bind = __webpack_require__(9);
 
 /*global toString:true*/
 
@@ -374,6 +374,155 @@ module.exports = {
 
 /***/ }),
 /* 1 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var Errors = function () {
+    /**
+     * Create a new Errors instance.
+     */
+    function Errors() {
+        _classCallCheck(this, Errors);
+
+        this.errors = {};
+    }
+
+    /**
+     * Determine if an errors exists for the given field.
+     *
+     * @param {string} field
+     */
+
+
+    _createClass(Errors, [{
+        key: "has",
+        value: function has(field) {
+            return this.errors.hasOwnProperty(field);
+        }
+
+        /**
+         * Determine if we have any errors.
+         */
+
+    }, {
+        key: "any",
+        value: function any() {
+            return Object.keys(this.errors).length > 0;
+        }
+
+        /**
+         * Retrieve the error message for a field.
+         *
+         * @param {string} field
+         */
+
+    }, {
+        key: "get",
+        value: function get(field) {
+            if (this.errors[field]) {
+                return this.errors[field][0];
+            }
+        }
+
+        /**
+         * Record the new errors.
+         *
+         * @param {object} errors
+         */
+
+    }, {
+        key: "record",
+        value: function record(errors) {
+            this.errors = errors;
+        }
+
+        /**
+         * Clear one or all error fields.
+         *
+         * @param {string|null} field
+         */
+
+    }, {
+        key: "clear",
+        value: function clear(field) {
+            if (field) {
+                delete this.errors[field];
+
+                return;
+            }
+
+            this.errors = {};
+        }
+    }]);
+
+    return Errors;
+}();
+
+/* harmony default export */ __webpack_exports__["a"] = (Errors);
+
+/***/ }),
+/* 2 */
+/***/ (function(module, exports) {
+
+// this module is a runtime utility for cleaner component module output and will
+// be included in the final webpack user bundle
+
+module.exports = function normalizeComponent (
+  rawScriptExports,
+  compiledTemplate,
+  scopeId,
+  cssModules
+) {
+  var esModule
+  var scriptExports = rawScriptExports = rawScriptExports || {}
+
+  // ES6 modules interop
+  var type = typeof rawScriptExports.default
+  if (type === 'object' || type === 'function') {
+    esModule = rawScriptExports
+    scriptExports = rawScriptExports.default
+  }
+
+  // Vue.extend constructor export interop
+  var options = typeof scriptExports === 'function'
+    ? scriptExports.options
+    : scriptExports
+
+  // render functions
+  if (compiledTemplate) {
+    options.render = compiledTemplate.render
+    options.staticRenderFns = compiledTemplate.staticRenderFns
+  }
+
+  // scopedId
+  if (scopeId) {
+    options._scopeId = scopeId
+  }
+
+  // inject cssModules
+  if (cssModules) {
+    var computed = Object.create(options.computed || null)
+    Object.keys(cssModules).forEach(function (key) {
+      var module = cssModules[key]
+      computed[key] = function () { return module }
+    })
+    options.computed = computed
+  }
+
+  return {
+    esModule: esModule,
+    exports: scriptExports,
+    options: options
+  }
+}
+
+
+/***/ }),
+/* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -397,10 +546,10 @@ function getDefaultAdapter() {
   var adapter;
   if (typeof XMLHttpRequest !== 'undefined') {
     // For browsers use XHR adapter
-    adapter = __webpack_require__(3);
+    adapter = __webpack_require__(5);
   } else if (typeof process !== 'undefined') {
     // For node use HTTP adapter
-    adapter = __webpack_require__(3);
+    adapter = __webpack_require__(5);
   }
   return adapter;
 }
@@ -471,10 +620,10 @@ utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
 
 module.exports = defaults;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
 /***/ }),
-/* 2 */
+/* 4 */
 /***/ (function(module, exports) {
 
 // shim for using process in browser
@@ -660,7 +809,7 @@ process.umask = function() { return 0; };
 
 
 /***/ }),
-/* 3 */
+/* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -671,7 +820,7 @@ var settle = __webpack_require__(20);
 var buildURL = __webpack_require__(23);
 var parseHeaders = __webpack_require__(29);
 var isURLSameOrigin = __webpack_require__(27);
-var createError = __webpack_require__(6);
+var createError = __webpack_require__(8);
 var btoa = (typeof window !== 'undefined' && window.btoa && window.btoa.bind(window)) || __webpack_require__(22);
 
 module.exports = function xhrAdapter(config) {
@@ -842,10 +991,10 @@ module.exports = function xhrAdapter(config) {
   });
 };
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
 /***/ }),
-/* 4 */
+/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -871,7 +1020,7 @@ module.exports = Cancel;
 
 
 /***/ }),
-/* 5 */
+/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -883,7 +1032,7 @@ module.exports = function isCancel(value) {
 
 
 /***/ }),
-/* 6 */
+/* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -907,7 +1056,7 @@ module.exports = function createError(message, config, code, response) {
 
 
 /***/ }),
-/* 7 */
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -922,155 +1071,6 @@ module.exports = function bind(fn, thisArg) {
     return fn.apply(thisArg, args);
   };
 };
-
-
-/***/ }),
-/* 8 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-var Errors = function () {
-    /**
-     * Create a new Errors instance.
-     */
-    function Errors() {
-        _classCallCheck(this, Errors);
-
-        this.errors = {};
-    }
-
-    /**
-     * Determine if an errors exists for the given field.
-     *
-     * @param {string} field
-     */
-
-
-    _createClass(Errors, [{
-        key: "has",
-        value: function has(field) {
-            return this.errors.hasOwnProperty(field);
-        }
-
-        /**
-         * Determine if we have any errors.
-         */
-
-    }, {
-        key: "any",
-        value: function any() {
-            return Object.keys(this.errors).length > 0;
-        }
-
-        /**
-         * Retrieve the error message for a field.
-         *
-         * @param {string} field
-         */
-
-    }, {
-        key: "get",
-        value: function get(field) {
-            if (this.errors[field]) {
-                return this.errors[field][0];
-            }
-        }
-
-        /**
-         * Record the new errors.
-         *
-         * @param {object} errors
-         */
-
-    }, {
-        key: "record",
-        value: function record(errors) {
-            this.errors = errors;
-        }
-
-        /**
-         * Clear one or all error fields.
-         *
-         * @param {string|null} field
-         */
-
-    }, {
-        key: "clear",
-        value: function clear(field) {
-            if (field) {
-                delete this.errors[field];
-
-                return;
-            }
-
-            this.errors = {};
-        }
-    }]);
-
-    return Errors;
-}();
-
-/* harmony default export */ __webpack_exports__["a"] = (Errors);
-
-/***/ }),
-/* 9 */
-/***/ (function(module, exports) {
-
-// this module is a runtime utility for cleaner component module output and will
-// be included in the final webpack user bundle
-
-module.exports = function normalizeComponent (
-  rawScriptExports,
-  compiledTemplate,
-  scopeId,
-  cssModules
-) {
-  var esModule
-  var scriptExports = rawScriptExports = rawScriptExports || {}
-
-  // ES6 modules interop
-  var type = typeof rawScriptExports.default
-  if (type === 'object' || type === 'function') {
-    esModule = rawScriptExports
-    scriptExports = rawScriptExports.default
-  }
-
-  // Vue.extend constructor export interop
-  var options = typeof scriptExports === 'function'
-    ? scriptExports.options
-    : scriptExports
-
-  // render functions
-  if (compiledTemplate) {
-    options.render = compiledTemplate.render
-    options.staticRenderFns = compiledTemplate.staticRenderFns
-  }
-
-  // scopedId
-  if (scopeId) {
-    options._scopeId = scopeId
-  }
-
-  // inject cssModules
-  if (cssModules) {
-    var computed = Object.create(options.computed || null)
-    Object.keys(cssModules).forEach(function (key) {
-      var module = cssModules[key]
-      computed[key] = function () { return module }
-    })
-    options.computed = computed
-  }
-
-  return {
-    esModule: esModule,
-    exports: scriptExports,
-    options: options
-  }
-}
 
 
 /***/ }),
@@ -1111,9 +1111,9 @@ module.exports = g;
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-__webpack_require__(33);
+__webpack_require__(35);
 
-window.Vue = __webpack_require__(41);
+window.Vue = __webpack_require__(47);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -1121,8 +1121,10 @@ window.Vue = __webpack_require__(41);
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('register', __webpack_require__(37));
-Vue.component('update-username', __webpack_require__(38));
+Vue.component('register', __webpack_require__(39));
+Vue.component('update-username', __webpack_require__(42));
+Vue.component('update-email', __webpack_require__(40));
+Vue.component('update-password', __webpack_require__(41));
 
 var app = new Vue({
   el: '#app'
@@ -1148,9 +1150,9 @@ module.exports = __webpack_require__(14);
 
 
 var utils = __webpack_require__(0);
-var bind = __webpack_require__(7);
+var bind = __webpack_require__(9);
 var Axios = __webpack_require__(16);
-var defaults = __webpack_require__(1);
+var defaults = __webpack_require__(3);
 
 /**
  * Create an instance of Axios
@@ -1183,9 +1185,9 @@ axios.create = function create(instanceConfig) {
 };
 
 // Expose Cancel & CancelToken
-axios.Cancel = __webpack_require__(4);
+axios.Cancel = __webpack_require__(6);
 axios.CancelToken = __webpack_require__(15);
-axios.isCancel = __webpack_require__(5);
+axios.isCancel = __webpack_require__(7);
 
 // Expose all/spread
 axios.all = function all(promises) {
@@ -1206,7 +1208,7 @@ module.exports.default = axios;
 "use strict";
 
 
-var Cancel = __webpack_require__(4);
+var Cancel = __webpack_require__(6);
 
 /**
  * A `CancelToken` is an object that can be used to request cancellation of an operation.
@@ -1270,7 +1272,7 @@ module.exports = CancelToken;
 "use strict";
 
 
-var defaults = __webpack_require__(1);
+var defaults = __webpack_require__(3);
 var utils = __webpack_require__(0);
 var InterceptorManager = __webpack_require__(17);
 var dispatchRequest = __webpack_require__(18);
@@ -1423,8 +1425,8 @@ module.exports = InterceptorManager;
 
 var utils = __webpack_require__(0);
 var transformData = __webpack_require__(21);
-var isCancel = __webpack_require__(5);
-var defaults = __webpack_require__(1);
+var isCancel = __webpack_require__(7);
+var defaults = __webpack_require__(3);
 
 /**
  * Throws a `Cancel` if cancellation has been requested.
@@ -1533,7 +1535,7 @@ module.exports = function enhanceError(error, config, code, response) {
 "use strict";
 
 
-var createError = __webpack_require__(6);
+var createError = __webpack_require__(8);
 
 /**
  * Resolve or reject a Promise based on response status.
@@ -1981,7 +1983,7 @@ module.exports = function spread(callback) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__classes_Errors__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__classes_Errors__ = __webpack_require__(1);
 //
 //
 //
@@ -2132,7 +2134,173 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__classes_Errors__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__classes_Errors__ = __webpack_require__(1);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    props: ['user_id'],
+    data: function data() {
+        return {
+            email: '',
+            load: false,
+            errors: new __WEBPACK_IMPORTED_MODULE_0__classes_Errors__["a" /* default */]()
+        };
+    },
+
+    methods: {
+        updateEmail: function updateEmail() {
+            var vm = this;
+            vm.load = true;
+            axios.post('/api/settings/account/update/email', {
+                email: vm.email,
+                id: vm.user_id
+            }).then(function () {
+                vm.load = false;
+                vm.email = '';
+                swal('Updated!', 'Your email address has successfully been updated', 'success');
+            }).catch(function (error) {
+                vm.load = false;
+                vm.errors.record(error.response.data);
+            });
+        }
+    }
+});
+
+/***/ }),
+/* 33 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__classes_Errors__ = __webpack_require__(1);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    props: ['user_id'],
+    data: function data() {
+        return {
+            old_password: '',
+            password: '',
+            password_confirmation: '',
+            load: false,
+            errors: new __WEBPACK_IMPORTED_MODULE_0__classes_Errors__["a" /* default */]()
+        };
+    },
+
+    methods: {
+        updateEmail: function updateEmail() {
+            var vm = this;
+            vm.load = true;
+            axios.post('/api/settings/account/update/password', {
+                old_password: vm.old_password,
+                password: vm.password,
+                password_confirmation: vm.password_confirmation,
+                id: vm.user_id
+            }).then(function () {
+                vm.load = false;
+                vm.old_password = '';
+                vm.password = '';
+                vm.password_confirmation = '';
+                swal('Updated!', 'Your password has successfully been updated', 'success');
+            }).catch(function (error) {
+                vm.load = false;
+                vm.errors.record(error.response.data);
+            });
+        }
+    }
+});
+
+/***/ }),
+/* 34 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__classes_Errors__ = __webpack_require__(1);
 //
 //
 //
@@ -2195,11 +2363,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 33 */
+/* 35 */
 /***/ (function(module, exports, __webpack_require__) {
 
 
-window._ = __webpack_require__(36);
+window._ = __webpack_require__(38);
 
 /**
  * We'll load jQuery and the Bootstrap jQuery plugin which provides support
@@ -2208,9 +2376,9 @@ window._ = __webpack_require__(36);
  */
 
 try {
-  window.$ = window.jQuery = __webpack_require__(35);
+  window.$ = window.jQuery = __webpack_require__(37);
 
-  __webpack_require__(34);
+  __webpack_require__(36);
 } catch (e) {}
 
 /**
@@ -2240,7 +2408,7 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 // });
 
 /***/ }),
-/* 34 */
+/* 36 */
 /***/ (function(module, exports) {
 
 /*!
@@ -4623,7 +4791,7 @@ if (typeof jQuery === 'undefined') {
 
 
 /***/ }),
-/* 35 */
+/* 37 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -14883,7 +15051,7 @@ return jQuery;
 
 
 /***/ }),
-/* 36 */
+/* 38 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global, module) {var __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -31972,17 +32140,17 @@ return jQuery;
   }
 }.call(this));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(10), __webpack_require__(42)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(10), __webpack_require__(48)(module)))
 
 /***/ }),
-/* 37 */
+/* 39 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var Component = __webpack_require__(9)(
+var Component = __webpack_require__(2)(
   /* script */
   __webpack_require__(31),
   /* template */
-  __webpack_require__(39),
+  __webpack_require__(44),
   /* scopeId */
   null,
   /* cssModules */
@@ -32009,14 +32177,82 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 38 */
+/* 40 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var Component = __webpack_require__(9)(
+var Component = __webpack_require__(2)(
   /* script */
   __webpack_require__(32),
   /* template */
-  __webpack_require__(40),
+  __webpack_require__(46),
+  /* scopeId */
+  null,
+  /* cssModules */
+  null
+)
+Component.options.__file = "/Users/dushaun/Sites/homestead/subgallery/resources/assets/js/components/settings/update-email.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
+if (Component.options.functional) {console.error("[vue-loader] update-email.vue: functional components are not supported with templates, they should use render functions.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-92b8b5a4", Component.options)
+  } else {
+    hotAPI.reload("data-v-92b8b5a4", Component.options)
+  }
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 41 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var Component = __webpack_require__(2)(
+  /* script */
+  __webpack_require__(33),
+  /* template */
+  __webpack_require__(43),
+  /* scopeId */
+  null,
+  /* cssModules */
+  null
+)
+Component.options.__file = "/Users/dushaun/Sites/homestead/subgallery/resources/assets/js/components/settings/update-password.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
+if (Component.options.functional) {console.error("[vue-loader] update-password.vue: functional components are not supported with templates, they should use render functions.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-1c9af879", Component.options)
+  } else {
+    hotAPI.reload("data-v-1c9af879", Component.options)
+  }
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 42 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var Component = __webpack_require__(2)(
+  /* script */
+  __webpack_require__(34),
+  /* template */
+  __webpack_require__(45),
   /* scopeId */
   null,
   /* cssModules */
@@ -32043,7 +32279,186 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 39 */
+/* 43 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "panel panel-default"
+  }, [_c('div', {
+    staticClass: "panel-heading"
+  }, [_vm._v("Password "), (_vm.load) ? _c('i', {
+    staticClass: "fa fa-spinner fa-pulse fa-fw"
+  }) : _vm._e()]), _vm._v(" "), _c('div', {
+    staticClass: "panel-body"
+  }, [_c('form', {
+    staticClass: "form-horizontal",
+    attrs: {
+      "role": "form",
+      "method": "POST"
+    }
+  }, [_c('div', {
+    staticClass: "form-group",
+    class: {
+      'has-error': _vm.errors.has('old_password')
+    }
+  }, [_c('label', {
+    staticClass: "col-md-4 control-label",
+    attrs: {
+      "for": "old_password"
+    }
+  }, [_vm._v("Old Password")]), _vm._v(" "), _c('div', {
+    staticClass: "col-md-6"
+  }, [_c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.old_password),
+      expression: "old_password"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      "id": "old_password",
+      "type": "password",
+      "name": "old_password",
+      "required": "",
+      "autofocus": ""
+    },
+    domProps: {
+      "value": (_vm.old_password)
+    },
+    on: {
+      "keydown": function($event) {
+        _vm.errors.clear('old_password')
+      },
+      "input": function($event) {
+        if ($event.target.composing) { return; }
+        _vm.old_password = $event.target.value
+      }
+    }
+  })]), _vm._v(" "), (_vm.errors.has('old_password')) ? _c('span', {
+    staticClass: "help-block"
+  }, [_c('strong', {
+    domProps: {
+      "textContent": _vm._s(_vm.errors.get('old_password'))
+    }
+  })]) : _vm._e()]), _vm._v(" "), _c('div', {
+    staticClass: "form-group",
+    class: {
+      'has-error': _vm.errors.has('password')
+    }
+  }, [_c('label', {
+    staticClass: "col-md-4 control-label",
+    attrs: {
+      "for": "password"
+    }
+  }, [_vm._v("New Password")]), _vm._v(" "), _c('div', {
+    staticClass: "col-md-6"
+  }, [_c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.password),
+      expression: "password"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      "id": "password",
+      "type": "password",
+      "name": "password",
+      "required": "",
+      "autofocus": ""
+    },
+    domProps: {
+      "value": (_vm.password)
+    },
+    on: {
+      "keydown": function($event) {
+        _vm.errors.clear('password')
+      },
+      "input": function($event) {
+        if ($event.target.composing) { return; }
+        _vm.password = $event.target.value
+      }
+    }
+  })]), _vm._v(" "), (_vm.errors.has('password')) ? _c('span', {
+    staticClass: "help-block"
+  }, [_c('strong', {
+    domProps: {
+      "textContent": _vm._s(_vm.errors.get('password'))
+    }
+  })]) : _vm._e()]), _vm._v(" "), _c('div', {
+    staticClass: "form-group",
+    class: {
+      'has-error': _vm.errors.has('password_confirmation')
+    }
+  }, [_c('label', {
+    staticClass: "col-md-4 control-label",
+    attrs: {
+      "for": "password-confirm"
+    }
+  }, [_vm._v("Confirm Password")]), _vm._v(" "), _c('div', {
+    staticClass: "col-md-6"
+  }, [_c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.password_confirmation),
+      expression: "password_confirmation"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      "id": "password-confirm",
+      "type": "password",
+      "name": "password_confirmation",
+      "required": ""
+    },
+    domProps: {
+      "value": (_vm.password_confirmation)
+    },
+    on: {
+      "keydown": function($event) {
+        _vm.errors.clear('password_confirmation')
+      },
+      "input": function($event) {
+        if ($event.target.composing) { return; }
+        _vm.password_confirmation = $event.target.value
+      }
+    }
+  })]), _vm._v(" "), (_vm.errors.has('password_confirmation')) ? _c('span', {
+    staticClass: "help-block"
+  }, [_c('strong', {
+    domProps: {
+      "textContent": _vm._s(_vm.errors.get('password_confirmation'))
+    }
+  })]) : _vm._e()]), _vm._v(" "), _c('div', {
+    staticClass: "form-group"
+  }, [_c('div', {
+    staticClass: "col-md-6 col-md-offset-4"
+  }, [_c('button', {
+    staticClass: "btn btn-primary",
+    attrs: {
+      "type": "submit",
+      "disabled": _vm.errors.any()
+    },
+    on: {
+      "click": function($event) {
+        $event.preventDefault();
+        _vm.updateEmail($event)
+      }
+    }
+  }, [_vm._v("\n                        Update\n                    ")])])])])])])
+},staticRenderFns: []}
+module.exports.render._withStripped = true
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-hot-reload-api").rerender("data-v-1c9af879", module.exports)
+  }
+}
+
+/***/ }),
+/* 44 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -32353,7 +32768,7 @@ if (false) {
 }
 
 /***/ }),
-/* 40 */
+/* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -32369,8 +32784,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "form-horizontal",
     attrs: {
       "role": "form",
-      "method": "POST",
-      "action": "/register"
+      "method": "POST"
     }
   }, [_c('div', {
     staticClass: "form-group",
@@ -32444,7 +32858,97 @@ if (false) {
 }
 
 /***/ }),
-/* 41 */
+/* 46 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "panel panel-default"
+  }, [_c('div', {
+    staticClass: "panel-heading"
+  }, [_vm._v("Email "), (_vm.load) ? _c('i', {
+    staticClass: "fa fa-spinner fa-pulse fa-fw"
+  }) : _vm._e()]), _vm._v(" "), _c('div', {
+    staticClass: "panel-body"
+  }, [_c('form', {
+    staticClass: "form-horizontal",
+    attrs: {
+      "role": "form",
+      "method": "POST"
+    }
+  }, [_c('div', {
+    staticClass: "form-group",
+    class: {
+      'has-error': _vm.errors.has('email')
+    }
+  }, [_c('label', {
+    staticClass: "col-md-4 control-label",
+    attrs: {
+      "for": "email"
+    }
+  }, [_vm._v("Email")]), _vm._v(" "), _c('div', {
+    staticClass: "col-md-6"
+  }, [_c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.email),
+      expression: "email"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      "id": "email",
+      "type": "email",
+      "name": "email",
+      "required": "",
+      "autofocus": ""
+    },
+    domProps: {
+      "value": (_vm.email)
+    },
+    on: {
+      "keydown": function($event) {
+        _vm.errors.clear('email')
+      },
+      "input": function($event) {
+        if ($event.target.composing) { return; }
+        _vm.email = $event.target.value
+      }
+    }
+  })]), _vm._v(" "), (_vm.errors.has('email')) ? _c('span', {
+    staticClass: "help-block"
+  }, [_c('strong', {
+    domProps: {
+      "textContent": _vm._s(_vm.errors.get('email'))
+    }
+  })]) : _vm._e()]), _vm._v(" "), _c('div', {
+    staticClass: "form-group"
+  }, [_c('div', {
+    staticClass: "col-md-6 col-md-offset-4"
+  }, [_c('button', {
+    staticClass: "btn btn-primary",
+    attrs: {
+      "type": "submit",
+      "disabled": _vm.errors.any()
+    },
+    on: {
+      "click": function($event) {
+        $event.preventDefault();
+        _vm.updateEmail($event)
+      }
+    }
+  }, [_vm._v("\n                        Update\n                    ")])])])])])])
+},staticRenderFns: []}
+module.exports.render._withStripped = true
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-hot-reload-api").rerender("data-v-92b8b5a4", module.exports)
+  }
+}
+
+/***/ }),
+/* 47 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -41769,10 +42273,10 @@ Vue$3.compile = compileToFunctions;
 
 module.exports = Vue$3;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2), __webpack_require__(10)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4), __webpack_require__(10)))
 
 /***/ }),
-/* 42 */
+/* 48 */
 /***/ (function(module, exports) {
 
 module.exports = function(module) {
@@ -41800,7 +42304,7 @@ module.exports = function(module) {
 
 
 /***/ }),
-/* 43 */
+/* 49 */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(11);

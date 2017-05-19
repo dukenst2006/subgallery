@@ -2,14 +2,20 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Http\Requests\UpdateEmail;
+use App\Http\Requests\UpdatePassword;
 use App\Http\Requests\UpdateUsername;
 use App\User;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class UpdateSettingsController extends Controller
 {
+    /**
+     * Update user's username
+     *
+     * @param UpdateUsername $request
+     */
     public function username(UpdateUsername $request)
     {
         $user = User::find($request->id);
@@ -17,13 +23,34 @@ class UpdateSettingsController extends Controller
         $user->save();
     }
 
-    public function email(Request $request)
+    /**
+     * Update user's email address
+     * TODO Email Notification and Verification
+     *
+     * @param UpdateEmail $request
+     */
+    public function email(UpdateEmail $request)
     {
-        $user = $request->user();
+        $user = User::find($request->id);
+        $user->email = $request->email;
+        $user->save();
     }
 
-    public function password(Request $request)
+    /**
+     * Update user's password
+     *
+     * @param UpdatePassword $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function password(UpdatePassword $request)
     {
-        $user = $request->user();
+        $user = User::find($request->id);
+
+        if (Hash::check($request->old_password, $user->password)) {
+            $user->password = Hash::make($request->password);
+            $user->save();
+        } else {
+            return response()->json(["old_password" => ["The old password given doesn't match out copy"]], 422);
+        }
     }
 }
