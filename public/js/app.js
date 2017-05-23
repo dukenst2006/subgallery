@@ -2256,7 +2256,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    props: ['user_id', 'sub_plans'],
+    props: ['user_id', 'sub_plans', 'user_plan'],
     data: function data() {
         return {
             plan: 1,
@@ -2276,7 +2276,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             }).then(function () {
                 vm.load = false;
                 vm.email = '';
-                swal('Updated!', 'Your email address has successfully been updated', 'success');
+                swal('Updated!', 'Your subscription plan has successfully been updated', 'success');
             }).catch(function (error) {
                 vm.load = false;
                 vm.errors.record(error.response.data);
