@@ -34,7 +34,7 @@
         props: ['user_id', 'sub_plans', 'user_plan'],
         data() {
             return {
-                plan: 1,
+                plan: this.user_plan.stripe_plan,
                 plans: this.sub_plans,
                 load: false,
                 errors: new Errors()

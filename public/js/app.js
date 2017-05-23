@@ -2259,7 +2259,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     props: ['user_id', 'sub_plans', 'user_plan'],
     data: function data() {
         return {
-            plan: 1,
+            plan: this.user_plan.stripe_plan,
             plans: this.sub_plans,
             load: false,
             errors: new __WEBPACK_IMPORTED_MODULE_0__classes_Errors__["a" /* default */]()
