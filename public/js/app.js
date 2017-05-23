@@ -32654,7 +32654,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [_vm._v("Please select one")]), _vm._v(" "), _vm._l((_vm.plans), function(plan) {
     return _c('option', {
       domProps: {
-        "value": plan.id
+        "value": plan.name
       }
     }, [_vm._v("\n                            " + _vm._s(plan.name) + "\n                        ")])
   })], 2)])]), _vm._v(" "), _c('div', {
