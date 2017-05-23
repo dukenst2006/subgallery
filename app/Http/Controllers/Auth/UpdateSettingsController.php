@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Requests\UpdateEmail;
 use App\Http\Requests\UpdatePassword;
 use App\Http\Requests\UpdateUsername;
+use App\Plan;
 use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -72,5 +73,13 @@ class UpdateSettingsController extends Controller
         } catch (\Exception $e) {
             return response()->json(['status' => [$e->getMessage()]], 422);
         }
+    }
+
+    public function plan(Request $request)
+    {
+        $user = User::find($request->id);
+        dd($user->subscriptions->where('ends_at', null)->where('ends_at', '>', date('Y-m-d H:i:s')));
+        $plan = Plan::find($request->plan);
+        $user->subscription('primary')->swap($plan->name);
     }
 }

@@ -3,17 +3,11 @@
 @section('content')
 <div class="container">
     <div class="row">
-        <div class="col-md-2">
+        <div class="col-md-3">
             @include('settings.particals.sidemenu')
         </div>
-        <div class="col-md-10">
-            <div class="panel panel-default">
-                <div class="panel-heading">Your Subscription Plan</div>
-
-                <div class="panel-body">
-                    This is where you can update your plan
-                </div>
-            </div>
+        <div class="col-md-9">
+            <update-subscription-plan :user_id="{{ auth()->id() }}" :plans="{{ $plans }}"></update-subscription-plan>
         </div>
     </div>
 </div>

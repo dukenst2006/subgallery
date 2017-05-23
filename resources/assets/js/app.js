@@ -21,6 +21,7 @@ Vue.component('update-email', require('./components/settings/update-email.vue'))
 Vue.component('update-password', require('./components/settings/update-password.vue'));
 
 Vue.component('update-card-credentials', require('./components/settings/billing/update-card-credentials.vue'));
+Vue.component('update-subscription-plan', require('./components/settings/subscriptions/update-subscription-plan.vue'));
 
 const app = new Vue({
     el: '#app'

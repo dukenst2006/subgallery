@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Plan;
 use App\User;
 use Illuminate\Http\Request;
 
@@ -38,7 +39,9 @@ class SettingsController extends Controller
 
     public function plan()
     {
-        return view('settings.subscription.plan');
+        $plans = Plan::all();
+
+        return view('settings.subscription.plan', compact('plans'));
     }
 
     public function cancel()
