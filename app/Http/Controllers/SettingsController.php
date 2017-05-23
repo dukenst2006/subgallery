@@ -41,7 +41,8 @@ class SettingsController extends Controller
     public function plan()
     {
         $plans = Plan::all();
-        $user_plan = Auth::user()->subscriptions;
+        $plan = Auth::user()->subscriptions;
+        $user_plan = $plan[0];
 
         return view('settings.subscription.plan', compact('plans', 'user_plan'));
     }
