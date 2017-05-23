@@ -9,7 +9,7 @@
                     <div class="col-md-6">
                         <select name="plan" id="plan" v-model="plan">
                             <option disabled value="">Please select one</option>
-                            <option v-for="plan in plans" :value="plan.id">
+                            <option v-for="plan in plans" :value="plan.name">
                                 {{ plan.name }}
                             </option>
                         </select>

@@ -20,6 +20,6 @@ class Plan extends Model
     public function scopeFindByName($query, $name)
     {
         return $query->where('name', $name)
-            ->get();
+            ->first();
     }
 }
