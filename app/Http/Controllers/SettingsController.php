@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Plan;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class SettingsController extends Controller
 {
@@ -40,8 +41,9 @@ class SettingsController extends Controller
     public function plan()
     {
         $plans = Plan::all();
+        $user_plan = Auth::user()->subscriptions;
 
-        return view('settings.subscription.plan', compact('plans'));
+        return view('settings.subscription.plan', compact('plans', 'user_plan'));
     }
 
     public function cancel()

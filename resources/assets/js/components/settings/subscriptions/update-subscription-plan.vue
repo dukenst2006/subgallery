@@ -31,7 +31,7 @@
 <script>
     import Errors from '../../../classes/Errors';
     export default {
-        props: ['user_id', 'sub_plans'],
+        props: ['user_id', 'sub_plans', 'user_plan'],
         data() {
             return {
                 plan: 1,
@@ -52,7 +52,7 @@
                     vm.email = '';
                     swal(
                         'Updated!',
-                        'Your email address has successfully been updated',
+                        'Your subscription plan has successfully been updated',
                         'success'
                     );
                 }).catch((error) => {
