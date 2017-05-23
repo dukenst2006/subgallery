@@ -4,7 +4,7 @@
         <div class="panel-body">
             <form class="form-horizontal" role="form" method="POST">
                 <div class="form-group">
-                    <label for="plan" class="col-md-4 control-label">Membership Plans</label>
+                    <label for="plan" class="col-md-4 control-label">Membership Plans <i v-if="load" class="fa fa-spinner fa-pulse fa-fw"></i></label>
 
                     <div class="col-md-6">
                         <select name="plan" id="plan" v-model="plan">

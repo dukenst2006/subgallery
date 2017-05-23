@@ -32620,7 +32620,9 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     attrs: {
       "for": "plan"
     }
-  }, [_vm._v("Membership Plans")]), _vm._v(" "), _c('div', {
+  }, [_vm._v("Membership Plans "), (_vm.load) ? _c('i', {
+    staticClass: "fa fa-spinner fa-pulse fa-fw"
+  }) : _vm._e()]), _vm._v(" "), _c('div', {
     staticClass: "col-md-6"
   }, [_c('select', {
     directives: [{
