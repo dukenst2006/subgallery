@@ -35,7 +35,7 @@
         data() {
             return {
                 plan: 1,
-                load: false,
+//                load: false,
                 errors: new Errors()
             };
         },
@@ -47,7 +47,7 @@
                     plan: vm.plan,
                     id: vm.user_id
                 }).then(() => {
-                    vm.load = false;
+//                    vm.load = false;
                     vm.email = '';
                     swal(
                         'Updated!',
@@ -55,7 +55,7 @@
                         'success'
                     );
                 }).catch((error) => {
-                    vm.load = false;
+//                    vm.load = false;
                     vm.errors.record(error.response.data)
                 })
             }
