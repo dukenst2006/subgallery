@@ -78,7 +78,7 @@ class UpdateSettingsController extends Controller
     public function plan(Request $request)
     {
         $user = User::find($request->id);
-        dd($user->subscriptions->where('ends_at', null)->where('ends_at', '>', date('Y-m-d H:i:s')));
+        dd($user->subscriptions);
         $plan = Plan::find($request->plan);
         $user->subscription('primary')->swap($plan->name);
     }
