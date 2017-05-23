@@ -1126,8 +1126,8 @@ Vue.component('update-username', __webpack_require__(46));
 Vue.component('update-email', __webpack_require__(44));
 Vue.component('update-password', __webpack_require__(45));
 
-Vue.component('update-card-credentials', __webpack_require__(42));
 Vue.component('update-subscription-plan', __webpack_require__(43));
+Vue.component('update-card-credentials', __webpack_require__(42));
 
 var app = new Vue({
   el: '#app'
