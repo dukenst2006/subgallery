@@ -78,7 +78,7 @@ class UpdateSettingsController extends Controller
     public function plan(Request $request)
     {
         $user = User::find($request->id);
-        dd($user->subscriptions);
+//        dd($user->subscriptions);
         $plan = Plan::find($request->plan);
         $user->subscription('primary')->swap($plan->name);
     }
