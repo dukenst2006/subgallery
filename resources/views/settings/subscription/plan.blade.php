@@ -7,7 +7,7 @@
             @include('settings.particals.sidemenu')
         </div>
         <div class="col-md-9">
-            <update-subscription-plan :user_id="{{ auth()->id() }}" :plans="{{ $plans }}"></update-subscription-plan>
+            <update-subscription-plan :user_id="{{ auth()->id() }}" :sub_plans="{{ $plans }}"></update-subscription-plan>
         </div>
     </div>
 </div>

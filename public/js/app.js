@@ -2256,11 +2256,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    props: ['user_id', 'plans'],
+    props: ['user_id', 'sub_plans'],
     data: function data() {
         return {
             plan: 1,
-            //                load: false,
+            plans: this.sub_plans,
+            load: false,
             errors: new __WEBPACK_IMPORTED_MODULE_0__classes_Errors__["a" /* default */]()
         };
     },
@@ -2273,11 +2274,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 plan: vm.plan,
                 id: vm.user_id
             }).then(function () {
-                //                    vm.load = false;
+                vm.load = false;
                 vm.email = '';
                 swal('Updated!', 'Your email address has successfully been updated', 'success');
             }).catch(function (error) {
-                //                    vm.load = false;
+                vm.load = false;
                 vm.errors.record(error.response.data);
             });
         }

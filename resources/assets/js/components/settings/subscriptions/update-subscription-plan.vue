@@ -31,11 +31,12 @@
 <script>
     import Errors from '../../../classes/Errors';
     export default {
-        props: ['user_id', 'plans'],
+        props: ['user_id', 'sub_plans'],
         data() {
             return {
                 plan: 1,
-//                load: false,
+                plans: this.sub_plans,
+                load: false,
                 errors: new Errors()
             };
         },
@@ -47,7 +48,7 @@
                     plan: vm.plan,
                     id: vm.user_id
                 }).then(() => {
-//                    vm.load = false;
+                    vm.load = false;
                     vm.email = '';
                     swal(
                         'Updated!',
@@ -55,7 +56,7 @@
                         'success'
                     );
                 }).catch((error) => {
-//                    vm.load = false;
+                    vm.load = false;
                     vm.errors.record(error.response.data)
                 })
             }
