@@ -93,6 +93,11 @@ class UpdateSettingsController extends Controller
         }
     }
 
+    /**
+     * Cancel users subscription
+     *
+     * @param Request $request
+     */
     public function cancel(Request $request)
     {
         $user = User::find($request->id);
