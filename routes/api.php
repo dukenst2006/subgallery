@@ -35,5 +35,6 @@ Route::group(['prefix' => 'settings'], function () {
     Route::group(['prefix' => 'subscription'], function () {
         Route::post('update', 'Auth\UpdateSettingsController@plan');
         Route::post('cancel', 'Auth\UpdateSettingsController@cancel');
+        Route::post('resume', 'Auth\UpdateSettingsController@resume');
     });
 });

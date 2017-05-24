@@ -3,7 +3,7 @@
         <div class="panel-heading">Resume Subscription <i v-if="load" class="fa fa-spinner fa-pulse fa-fw"></i></div>
 
         <div class="panel-body">
-            <button type="button" class="btn btn-success btn-lg" @click="cancel">Resume your Subscription</button>
+            <button type="button" class="btn btn-success btn-lg" @click="resume">Resume your Subscription</button>
         </div>
     </div>
 </template>
@@ -17,7 +17,7 @@
             };
         },
         methods: {
-            cancel() {
+            resume() {
                 let vm = this;
                 vm.load = true;
                 swal({

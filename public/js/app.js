@@ -2306,7 +2306,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     },
 
     methods: {
-        cancel: function cancel() {
+        resume: function resume() {
             var vm = this;
             vm.load = true;
             swal({
@@ -33418,7 +33418,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "type": "button"
     },
     on: {
-      "click": _vm.cancel
+      "click": _vm.resume
     }
   }, [_vm._v("Resume your Subscription")])])])
 },staticRenderFns: []}
