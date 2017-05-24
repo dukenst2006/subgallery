@@ -92,4 +92,10 @@ class UpdateSettingsController extends Controller
             return response()->json(['status' => ['You\'re already subscribed to that plan']], 422);
         }
     }
+
+    public function cancel(Request $request)
+    {
+        $user = User::find($request->id);
+        $user->subscription('primary')->cancel();
+    }
 }

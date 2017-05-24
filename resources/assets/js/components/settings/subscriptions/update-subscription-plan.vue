@@ -53,7 +53,7 @@
             updatePlan() {
                 let vm = this;
                 vm.load = true;
-                axios.post('/api/settings/subscription/update/plan', {
+                axios.post('/api/settings/subscription/update', {
                     plan: vm.plan,
                     id: vm.user_id
                 }).then(() => {

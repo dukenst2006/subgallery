@@ -37,5 +37,7 @@ class User extends Authenticatable
         'trial_ends_at'
     ];
 
-
+    public function taxPercentage() {
+        return 14.97;
+    }
 }
