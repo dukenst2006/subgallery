@@ -2261,6 +2261,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -32665,23 +32666,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         "value": plan.name
       }
     }, [_vm._v("\n                            " + _vm._s(plan.name) + "\n                        ")])
-  })], 2)])]), _vm._v(" "), _c('div', {
-    staticClass: "form-group"
-  }, [_c('div', {
-    staticClass: "col-md-6 col-md-offset-4"
-  }, [_c('button', {
-    staticClass: "btn btn-primary",
-    attrs: {
-      "type": "submit",
-      "disabled": _vm.errors.any()
-    },
-    on: {
-      "click": function($event) {
-        $event.preventDefault();
-        _vm.updatePlan($event)
-      }
-    }
-  }, [_vm._v("\n                        Update you subscription plan\n                    ")])])]), _vm._v(" "), (_vm.errors.has('status')) ? _c('div', {
+  })], 2)])]), _vm._v(" "), (_vm.errors.has('status')) ? _c('div', {
     staticClass: "form-group"
   }, [_c('div', {
     staticClass: "col-md-6 col-md-offset-4"
@@ -32705,7 +32690,23 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     domProps: {
       "textContent": _vm._s(_vm.errors.get('status'))
     }
-  })])])]) : _vm._e()])])])
+  })])])]) : _vm._e(), _vm._v(" "), _c('div', {
+    staticClass: "form-group"
+  }, [_c('div', {
+    staticClass: "col-md-6 col-md-offset-4"
+  }, [_c('button', {
+    staticClass: "btn btn-primary",
+    attrs: {
+      "type": "submit",
+      "disabled": _vm.errors.any()
+    },
+    on: {
+      "click": function($event) {
+        $event.preventDefault();
+        _vm.updatePlan($event)
+      }
+    }
+  }, [_vm._v("\n                        Update you subscription plan\n                    ")])])])])])])
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {
