@@ -76,7 +76,7 @@ class UpdateSettingsController extends Controller
     }
 
     /**
-     * Swap a users plan
+     * Swap a user's plan
      *
      * @param Request $request
      * @return \Illuminate\Http\JsonResponse
@@ -94,7 +94,7 @@ class UpdateSettingsController extends Controller
     }
 
     /**
-     * Cancel users subscription
+     * Cancel user's subscription
      *
      * @param Request $request
      */
@@ -102,5 +102,16 @@ class UpdateSettingsController extends Controller
     {
         $user = User::find($request->id);
         $user->subscription('primary')->cancel();
+    }
+
+    /**
+     * Resume user's subscription
+     *
+     * @param Request $request
+     */
+    public function resume(Request $request)
+    {
+        $user = User::find($request->id);
+        $user->subscription('primary')->resume();
     }
 }

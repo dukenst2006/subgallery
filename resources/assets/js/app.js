@@ -22,6 +22,7 @@ Vue.component('update-password', require('./components/settings/update-password.
 
 Vue.component('update-subscription-plan', require('./components/settings/subscriptions/update-subscription-plan.vue'));
 Vue.component('cancel-subscription', require('./components/settings/subscriptions/cancel-subscription.vue'));
+Vue.component('resume-subscription', require('./components/settings/subscriptions/resume-subscription.vue'));
 Vue.component('update-card-credentials', require('./components/settings/billing/update-card-credentials.vue'));
 
 const app = new Vue({
