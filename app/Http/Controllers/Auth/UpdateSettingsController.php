@@ -75,10 +75,21 @@ class UpdateSettingsController extends Controller
         }
     }
 
+    /**
+     * Swap a users plan
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function plan(Request $request)
     {
         $user = User::find($request->id);
         $plan = Plan::findByName($request->plan);
-        $user->subscription('primary')->swap($plan->name);
+
+        if ($user->subscriptions[0]['stripe_plan'] !== $plan->name) {
+            $user->subscription('primary')->swap($plan->name);
+        } else {
+            return response()->json(['status' => ['You\'re already subscribed to that plan']], 422);
+        }
     }
 }
