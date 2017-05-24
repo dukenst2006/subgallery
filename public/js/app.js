@@ -2253,6 +2253,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -32673,7 +32681,31 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         _vm.updatePlan($event)
       }
     }
-  }, [_vm._v("\n                        Update you subscription plan\n                    ")])])])])])])
+  }, [_vm._v("\n                        Update you subscription plan\n                    ")])])]), _vm._v(" "), (_vm.errors.has('status')) ? _c('div', {
+    staticClass: "form-group"
+  }, [_c('div', {
+    staticClass: "col-md-6 col-md-offset-4"
+  }, [_c('div', {
+    staticClass: "alert alert-danger"
+  }, [_c('a', {
+    staticClass: "close",
+    attrs: {
+      "href": "#",
+      "data-dismiss": "alert",
+      "aria-label": "close"
+    },
+    on: {
+      "click": function($event) {
+        _vm.errors.clear('status')
+      }
+    }
+  }, [_c('i', {
+    staticClass: "fa fa-close"
+  })]), _vm._v(" "), _c('p', {
+    domProps: {
+      "textContent": _vm._s(_vm.errors.get('status'))
+    }
+  })])])]) : _vm._e()])])])
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {

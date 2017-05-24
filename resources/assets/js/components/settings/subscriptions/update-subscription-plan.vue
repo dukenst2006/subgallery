@@ -23,6 +23,14 @@
                         </button>
                     </div>
                 </div>
+                <div class="form-group" v-if="errors.has('status')">
+                    <div class="col-md-6 col-md-offset-4">
+                        <div class="alert alert-danger">
+                            <a href="#" class="close" data-dismiss="alert" aria-label="close" @click="errors.clear('status')"><i class="fa fa-close"></i></a>
+                            <p v-text="errors.get('status')"></p>
+                        </div>
+                    </div>
+                </div>
             </form>
         </div>
     </div>
