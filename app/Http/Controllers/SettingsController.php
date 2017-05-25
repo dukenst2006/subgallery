@@ -36,7 +36,9 @@ class SettingsController extends Controller
     public function invoices()
     {
         $user = User::find(Auth::id());
-        return view('settings.billing.invoices', compact('user'));
+        $invoices = $user->invoicesIncludingPending();
+        dd($invoices);
+        return view('settings.billing.invoices', compact('invoices'));
     }
 
     public function plan()
