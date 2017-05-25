@@ -33644,7 +33644,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [_vm._m(0), _vm._v(" "), _c('tbody', _vm._l((_vm.invoices), function(invoice) {
     return _c('tr', [_c('td', [_vm._v(_vm._s(invoice.date))]), _vm._v(" "), _c('td', [_vm._v("$" + _vm._s(invoice.total))]), _vm._v(" "), _c('td', [_c('a', {
       attrs: {
-        "href": '/settings/billing/invoice/' + invoice.id
+        "href": invoice.download
       }
     }, [_vm._v("Download")])])])
   }))])])
