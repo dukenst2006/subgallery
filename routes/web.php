@@ -26,4 +26,6 @@ Route::get('/settings/subscription/plan', 'SettingsController@plan');
 Route::get('/settings/subscription/cancel', 'SettingsController@cancel');
 Route::get('/settings/subscription/resume', 'SettingsController@resume');
 
+Route::get('/settings/billing/invoice/{invoice}', 'SettingsController@invoiceDownload');
+
 Route::post('stripe/webhook', 'Auth\WebhookController@handleWebhook');

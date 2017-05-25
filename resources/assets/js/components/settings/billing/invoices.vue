@@ -17,7 +17,7 @@
             <tbody>
                 <tr v-for="invoice in invoices">
                     <td>{{ invoice.date }}</td>
-                    <td>{{ invoice.total }}</td>
+                    <td>${{ invoice.total }}</td>
                     <td><a :href="'/settings/billing/invoice/' + invoice.id">Download</a></td>
                 </tr>
             </tbody>

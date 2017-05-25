@@ -37,7 +37,6 @@ class SettingsController extends Controller
     {
         $user = User::find(Auth::id());
         $invoices = $user->json_invoices;
-//        dd($invoices->toJson());
         return view('settings.billing.invoices', compact('invoices'));
     }
 
@@ -58,5 +57,13 @@ class SettingsController extends Controller
     public function resume()
     {
         return view('settings.subscription.resume');
+    }
+
+    public function invoiceDownload($invoiceId)
+    {
+        return Auth::user()->downloadInvoice($invoiceId, [
+            'vendor' => config('app.name'),
+            'product' => Auth::user()->subscriptions[0]['stripe_plan']
+        ]);
     }
 }
