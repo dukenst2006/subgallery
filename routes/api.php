@@ -27,8 +27,12 @@ Route::group(['prefix' => 'settings'], function () {
     });
 
     Route::group(['prefix' => 'billing'], function () {
-        Route::group(['prefix' => 'update'], function () {
-            Route::post('card', 'Auth\UpdateSettingsController@card');
+        Route::group(['prefix' => 'card'], function () {
+            Route::post('update', 'Auth\UpdateSettingsController@card');
+        });
+
+        Route::group(['prefix' => 'invoices'], function () {
+            Route::get('get', 'Auth\UpdateSettingsController@invoices');
         });
     });
 

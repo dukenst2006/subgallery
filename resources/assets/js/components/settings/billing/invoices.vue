@@ -27,11 +27,31 @@
 
 <script>
     export default {
-        props: ['invoices'],
         data() {
             return {
-                hello: 'world'
+                invoices: [],
+                load: false
             };
+        },
+        created() {
+            this.getInvoices();
+        },
+        methods: {
+            getInvoices() {
+                let vm = this;
+                vm.load = true;
+                axios.get('/settings/billing/invoices/get').then((response) => {
+                    vm.load = false;
+                    vm.invoices = response.data.invoices;
+                }).catch((error) => {
+                    vm.load = false;
+                    swal(
+                        'Oops',
+                        'There was an error loading your invoices, please notify the admin',
+                        'error'
+                    )
+                })
+            }
         }
     }
 </script>
