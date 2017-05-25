@@ -83,6 +83,7 @@ class UpdateSettingsController extends Controller
     public function invoices(Request $request)
     {
         $user = User::find($request->id);
+        dd($user);
         $invoices = $user->json_invoices;
 
         return response()->json([
