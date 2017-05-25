@@ -12,6 +12,8 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/sweetalert2/6.3.3/sweetalert2.min.css">
 
     <!-- Scripts -->
     <script>
@@ -64,6 +66,8 @@
                                 </a>
 
                                 <ul class="dropdown-menu" role="menu">
+                                    <li><a href="{{ url('settings/account') }}">Settings</a></li>
+                                    <li role="separator" class="divider"></li>
                                     <li>
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
@@ -89,6 +93,7 @@
     <!-- Scripts -->
     <script src="https://checkout.stripe.com/checkout.js"></script>
     <script src="{{ asset('js/app.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/sweetalert2/6.3.3/sweetalert2.min.js"></script>
     <script src="https://cdn.jsdelivr.net/jquery.loadingoverlay/latest/loadingoverlay.min.js"></script>
 </body>
 </html>

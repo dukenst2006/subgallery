@@ -19,7 +19,13 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/premium', 'HomeController@premium')->name('premium');
-Route::get('/settings/subscription/card', 'SettingsController@card');
-Route::get('/settings/subscription/upgrade', 'SettingsController@upgrade');
+Route::get('/settings/account', 'SettingsController@account');
+Route::get('/settings/billing/invoices', 'SettingsController@invoices');
+Route::get('/settings/billing/card', 'SettingsController@card');
+Route::get('/settings/subscription/plan', 'SettingsController@plan');
+Route::get('/settings/subscription/cancel', 'SettingsController@cancel');
+Route::get('/settings/subscription/resume', 'SettingsController@resume');
+
+Route::get('/settings/billing/invoice/{invoice}', 'SettingsController@invoiceDownload');
 
 Route::post('stripe/webhook', 'Auth\WebhookController@handleWebhook');

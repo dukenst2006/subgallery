@@ -16,6 +16,16 @@ window.Vue = require('vue');
  */
 
 Vue.component('register', require('./components/register.vue'));
+Vue.component('update-username', require('./components/settings/update-username.vue'));
+Vue.component('update-email', require('./components/settings/update-email.vue'));
+Vue.component('update-password', require('./components/settings/update-password.vue'));
+
+Vue.component('update-subscription-plan', require('./components/settings/subscriptions/update-subscription-plan.vue'));
+Vue.component('cancel-subscription', require('./components/settings/subscriptions/cancel-subscription.vue'));
+Vue.component('resume-subscription', require('./components/settings/subscriptions/resume-subscription.vue'));
+
+Vue.component('update-card-credentials', require('./components/settings/billing/update-card-credentials.vue'));
+Vue.component('invoices', require('./components/settings/billing/invoices.vue'));
 
 const app = new Vue({
     el: '#app'

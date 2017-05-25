@@ -36,4 +36,24 @@ class User extends Authenticatable
     protected $dates = [
         'trial_ends_at'
     ];
+
+    /**
+     * @return float
+     */
+    public function taxPercentage() {
+        return 14.97;
+    }
+
+    public function getJsonInvoicesAttribute()
+    {
+        $invoices = $this->invoicesIncludingPending()->map(function($invoice) {
+            return [
+                'date' => $invoice->date()->toFormattedDateString(),
+                'total' => number_format($invoice->total / 100, 2, '.', ','),
+                'download' => '/settings/billing/invoice/' . $invoice->id,
+            ];
+        });
+
+        return $invoices;
+    }
 }
