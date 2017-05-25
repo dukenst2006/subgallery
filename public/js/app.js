@@ -2168,8 +2168,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     props: ['invoices'],
@@ -33644,14 +33642,14 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [_vm._v("Your Payment History")]), _vm._v(" "), _c('table', {
     staticClass: "table table-hover"
   }, [_vm._m(0), _vm._v(" "), _c('tbody', _vm._l((_vm.invoices), function(invoice) {
-    return _c('tr', [_c('td', [_vm._v(_vm._s(invoice.id))]), _vm._v(" "), _c('td', [_vm._v(_vm._s(invoice.date))]), _vm._v(" "), _c('td', [_vm._v(_vm._s(invoice.total))]), _vm._v(" "), _c('td', [_c('a', {
+    return _c('tr', [_c('td', [_vm._v(_vm._s(invoice.date))]), _vm._v(" "), _c('td', [_vm._v(_vm._s(invoice.total))]), _vm._v(" "), _c('td', [_c('a', {
       attrs: {
         "href": '/settings/billing/invoice/' + invoice.id
       }
     }, [_vm._v("Download")])])])
   }))])])
 },staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('thead', [_c('tr', [_c('td', [_vm._v("#")]), _vm._v(" "), _c('td', [_vm._v("Date")]), _vm._v(" "), _c('td', [_vm._v("Total")]), _vm._v(" "), _c('td', [_c('i', {
+  return _c('thead', [_c('tr', [_c('td', [_vm._v("Date")]), _vm._v(" "), _c('td', [_vm._v("Total")]), _vm._v(" "), _c('td', [_c('i', {
     staticClass: "fa fa-cloud-download",
     attrs: {
       "aria-hidden": "true"

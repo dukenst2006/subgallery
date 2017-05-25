@@ -9,7 +9,6 @@
         <table class="table table-hover">
             <thead>
                 <tr>
-                    <td>#</td>
                     <td>Date</td>
                     <td>Total</td>
                     <td><i class="fa fa-cloud-download" aria-hidden="true"></i></td>
@@ -17,7 +16,6 @@
             </thead>
             <tbody>
                 <tr v-for="invoice in invoices">
-                    <td>{{ invoice.id }}</td>
                     <td>{{ invoice.date }}</td>
                     <td>{{ invoice.total }}</td>
                     <td><a :href="'/settings/billing/invoice/' + invoice.id">Download</a></td>

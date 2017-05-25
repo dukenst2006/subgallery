@@ -46,15 +46,14 @@ class User extends Authenticatable
 
     public function getJsonInvoicesAttribute()
     {
-
         $invoices = $this->invoices()->map(function($invoice) {
             return [
                 'date' => $invoice->date()->toFormattedDateString(),
-                'total' => $invoice->total,
-                'download' => '/user/download/invoice/' . $invoice->id,
+                'total' => number_format($invoice->total / 100, 2, '.', ','),
+                'download' => '/settings/billing/invoice/' . $invoice->id,
             ];
         });
 
-        return $invoices;
+        return $invoices->toJson();
     }
 }
