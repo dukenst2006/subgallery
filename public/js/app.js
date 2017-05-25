@@ -33661,7 +33661,9 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "panel panel-default"
   }, [_c('div', {
     staticClass: "panel-heading"
-  }, [_vm._v("Your Payment History")]), _vm._v(" "), _c('table', {
+  }, [_vm._v("Your Payment History "), (_vm.load) ? _c('i', {
+    staticClass: "fa fa-spinner fa-pulse fa-fw"
+  }) : _vm._e()]), _vm._v(" "), _c('table', {
     staticClass: "table table-hover"
   }, [_vm._m(0), _vm._v(" "), _c('tbody', _vm._l((_vm.invoices), function(invoice) {
     return _c('tr', [_c('td', [_vm._v(_vm._s(invoice.date))]), _vm._v(" "), _c('td', [_vm._v("$" + _vm._s(invoice.total))]), _vm._v(" "), _c('td', [_c('a', {
