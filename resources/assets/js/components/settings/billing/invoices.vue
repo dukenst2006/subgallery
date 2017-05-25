@@ -40,7 +40,7 @@
             getInvoices() {
                 let vm = this;
                 vm.load = true;
-                axios.get('/settings/billing/invoices/get').then((response) => {
+                axios.get('/api/settings/billing/invoices/get').then((response) => {
                     vm.load = false;
                     vm.invoices = response.data.invoices;
                 }).catch((error) => {

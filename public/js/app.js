@@ -2184,7 +2184,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         getInvoices: function getInvoices() {
             var vm = this;
             vm.load = true;
-            axios.get('/settings/billing/invoices/get').then(function (response) {
+            axios.get('/api/settings/billing/invoices/get').then(function (response) {
                 vm.load = false;
                 vm.invoices = response.data.invoices;
             }).catch(function (error) {
