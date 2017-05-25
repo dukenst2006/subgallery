@@ -54,6 +54,6 @@ class User extends Authenticatable
             ];
         });
 
-        return ['invoices' => $invoices];
+        return $invoices;
     }
 }
