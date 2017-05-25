@@ -7,7 +7,7 @@
             @include('settings.particals.sidemenu')
         </div>
         <div class="col-md-9">
-            <invoices :invoices="{{ $invoices }}"></invoices>
+            <invoices :user_id="{{ auth()->id() }}"></invoices>
         </div>
     </div>
 </div>

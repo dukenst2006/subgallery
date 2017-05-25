@@ -27,6 +27,7 @@
 
 <script>
     export default {
+        props: ['user_id'],
         data() {
             return {
                 invoices: [],
@@ -40,7 +41,11 @@
             getInvoices() {
                 let vm = this;
                 vm.load = true;
-                axios.get('/api/settings/billing/invoices/get').then((response) => {
+                axios.get('/api/settings/billing/invoices/get', {
+                    params: {
+                        id: vm.user_id
+                    }
+                }).then((response) => {
                     vm.load = false;
                     vm.invoices = response.data.invoices;
                 }).catch((error) => {

@@ -77,11 +77,12 @@ class UpdateSettingsController extends Controller
     }
 
     /**
+     * @param Request $request
      * @return \Illuminate\Http\JsonResponse
      */
-    public function invoices()
+    public function invoices(Request $request)
     {
-        $user = User::find(Auth::id());
+        $user = User::find($request->id);
         $invoices = $user->json_invoices;
 
         return response()->json([
