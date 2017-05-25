@@ -46,7 +46,7 @@ class User extends Authenticatable
 
     public function getJsonInvoicesAttribute()
     {
-        $invoices = $this->invoices()->map(function($invoice) {
+        $invoices = $this->invoicesIncludingPending()->map(function($invoice) {
             return [
                 'date' => $invoice->date()->toFormattedDateString(),
                 'total' => number_format($invoice->total / 100, 2, '.', ','),
