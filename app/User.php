@@ -37,7 +37,24 @@ class User extends Authenticatable
         'trial_ends_at'
     ];
 
+    /**
+     * @return float
+     */
     public function taxPercentage() {
         return 14.97;
+    }
+
+    public function getJsonInvoicesAttribute()
+    {
+
+        $invoices = $this->invoices()->map(function($invoice) {
+            return [
+                'date' => $invoice->date()->toFormattedDateString(),
+                'total' => $invoice->total,
+                'download' => '/user/download/invoice/' . $invoice->id,
+            ];
+        });
+
+        return $invoices;
     }
 }
