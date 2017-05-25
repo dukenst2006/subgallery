@@ -36,14 +36,7 @@ class SettingsController extends Controller
     public function invoices()
     {
         $user = User::find(Auth::id());
-//        $invoices = $user->json_invoices;
-        $invoices = $user->invoices()->map(function($invoice) {
-            return [
-                'date' => $invoice->date()->toFormattedDateString(),
-                'total' => $invoice->total,
-                'download' => '/user/download/invoice/' . $invoice->id,
-            ];
-        })->all();
+        $invoices = $user->invoicesIncludingPending();
         return view('settings.billing.invoices', compact('invoices'));
     }
 
