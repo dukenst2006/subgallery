@@ -42,3 +42,12 @@ Route::group(['prefix' => 'settings'], function () {
         Route::post('resume', 'Auth\UpdateSettingsController@resume');
     });
 });
+
+Route::group(['prefix' => 'home'], function () {
+    Route::group(['prefix' => 'admin'], function () {
+        Route::group(['prefix' => 'users'], function () {
+            Route::get('get', 'Api\Admin\UserController@index');
+            Route::post('create', 'Api\Admin\UserController@store');
+        });
+    });
+});

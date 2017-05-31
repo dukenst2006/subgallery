@@ -58,5 +58,7 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'subscribed' => \App\Http\Middleware\Subscribed::class,
         'subscribed.premium' => \App\Http\Middleware\PremiumSubscriber::class,
+        'clearance' => \App\Http\Middleware\ClearanceMiddleware::class,
+        'isAdmin' => \App\Http\Middleware\AdminMiddleware::class,
     ];
 }

@@ -169,6 +169,7 @@ return [
         Laravel\Tinker\TinkerServiceProvider::class,
         Spatie\MediaLibrary\MediaLibraryServiceProvider::class,
         Spatie\Activitylog\ActivitylogServiceProvider::class,
+        Spatie\Permission\PermissionServiceProvider::class,
         Laravel\Cashier\CashierServiceProvider::class,
 
         /*

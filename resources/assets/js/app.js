@@ -8,6 +8,7 @@
 require('./bootstrap');
 
 window.Vue = require('vue');
+window.bus = new Vue();
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -26,6 +27,9 @@ Vue.component('resume-subscription', require('./components/settings/subscription
 
 Vue.component('update-card-credentials', require('./components/settings/billing/update-card-credentials.vue'));
 Vue.component('invoices', require('./components/settings/billing/invoices.vue'));
+
+Vue.component('index-users', require('./components/admin/index-users.vue'));
+Vue.component('create-user', require('./components/admin/create-user.vue'));
 
 const app = new Vue({
     el: '#app'
