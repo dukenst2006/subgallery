@@ -21,10 +21,7 @@ class UserController extends Controller
 
     // Create will be a vue component
 
-    public function show()
-    {
-        return view('admin.users.show');
-    }
+    // View will be a vue modal component
 
     // Edit will be a vue component
 }

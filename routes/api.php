@@ -48,6 +48,8 @@ Route::group(['prefix' => 'home'], function () {
         Route::group(['prefix' => 'users'], function () {
             Route::get('get', 'Api\Admin\UserController@index');
             Route::post('create', 'Api\Admin\UserController@store');
+            Route::get('view', 'Api\Admin\UserController@view');
+            Route::post('update', 'Api\Admin\UserController@update');
         });
     });
 });

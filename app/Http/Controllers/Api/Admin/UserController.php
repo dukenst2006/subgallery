@@ -64,31 +64,45 @@ class UserController extends Controller
     }
 
     /**
+     * Return information of selected user
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function view(Request $request)
+    {
+        $user = User::find($request->id);
+        return response()->json([
+            'user' => $user
+        ], 200);
+    }
+
+    /**
      * Update selected user
      *
      * @param Request $request
-     * @param $id
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        $user = User::findOrFail($id);
+        $user = User::findOrFail($request->id);
 
         $this->validate($request, [
             'username' => 'required|string|alpha_dash|max:255|unique:users',
-            'email' => 'required|string|email|max:255|unique:users,email,'.$id,
-            'password' => 'required|string|min:8|confirmed',
+            'email' => 'required|string|email|max:255|unique:users,email,'.$request->id,
         ]);
 
         $user->update([
             'username' => $request->username,
             'email' => $request->email,
-            'password' => bcrypt($request->password),
         ]);
 
-        $roles = $request->roles;
+        $roleId = $request->roles;
 
-        if (isset($roles)) {
-            $user->roles()->sync($roles);
+        if (isset($roleId)) {
+            $role = Role::findOrFail($roleId);
+            if (!$user->hasRole($role->name)) {
+                $user->assignRole($role);
+            }
         }
         else {
             $user->roles()->detach();

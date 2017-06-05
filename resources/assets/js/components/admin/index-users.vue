@@ -20,14 +20,15 @@
                     <td>{{ moment(user.created_at) }}</td>
                     <td>{{ user.roles[0].name }}</td>
                     <td>
-                        <a href="" class="btn btn-primary btn-xs">Display</a>
                         <div class="btn-group">
                             <button type="button" class="btn btn-info btn-xs dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Actions <span class="caret"></span>
                             </button>
                             <ul class="dropdown-menu">
+                                <li><a href="#" @click.prevent="select(user)">View User</a></li>
                                 <li><a href="#">Login as User</a></li>
                                 <li role="separator" class="divider"></li>
+                                <li><a href="#">Warn User</a></li>
                                 <li><a href="#">Cancel Subscription</a></li>
                             </ul>
                         </div>
@@ -36,16 +37,23 @@
                 </tbody>
             </table>
         </div>
+
+        <view-user-modal :user="selected"></view-user-modal>
     </div>
 </template>
 
 <script>
+    import ViewUser from './view-user.vue';
     export default {
         data() {
             return {
                 users: [],
+                selected: {},
                 load: false
             };
+        },
+        components: {
+            'view-user-modal': ViewUser
         },
         created() {
             bus.$on('update_user_index', this.getUsers);
@@ -66,6 +74,10 @@
                     );
                     vm.load = false;
                 })
+            },
+            select(user) {
+                $('#viewUserModal').modal( 'show' );
+                this.selected = user
             },
             moment(date) {
                 return moment(date).format('Do MMM YYYY, HH:mm');
