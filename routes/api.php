@@ -59,5 +59,13 @@ Route::group(['prefix' => 'home'], function () {
             Route::post('update', 'Api\Admin\PermissionController@update');
             Route::delete('delete/{id}', 'Api\Admin\PermissionController@destroy');
         });
+
+        Route::group(['prefix' => 'roles'], function () {
+            Route::get('get', 'Api\Admin\RoleController@index');
+            Route::post('create', 'Api\Admin\RoleController@store');
+            Route::get('view', 'Api\Admin\RoleController@view');
+            Route::post('update', 'Api\Admin\RoleController@update');
+            Route::delete('delete/{id}', 'Api\Admin\RoleController@destroy');
+        });
     });
 });

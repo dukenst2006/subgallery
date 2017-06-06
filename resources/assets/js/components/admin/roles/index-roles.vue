@@ -2,29 +2,33 @@
     <div>
         <div class="panel panel-default">
             <div class="panel-heading">
-                Permissions <i v-if="load" class="fa fa-spinner fa-pulse fa-fw"></i>
+                Role <i v-if="load" class="fa fa-spinner fa-pulse fa-fw"></i>
                 <button class="btn btn-success btn-xs pull-right" @click="create"><i class="fa fa-plus" aria-hidden="true"></i></button>
             </div>
 
             <table class="table table-hover">
                 <thead>
                 <tr>
-                    <td>Name</td>
+                    <td>Role</td>
+                    <td>Permissions</td>
                     <td></td>
                 </tr>
                 </thead>
                 <tbody>
-                <tr v-for="permission in permissions">
-                    <td>{{ permission.name }}</td>
+                <tr v-for="role in roles">
+                    <td>{{ role.name }}</td>
+                    <td>
+                        <span v-for="permission in role.permissions">{{ permission.name }}, </span>
+                    </td>
                     <td>
                         <div class="btn-group">
                             <button type="button" class="btn btn-info btn-xs dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Actions <span class="caret"></span>
                             </button>
                             <ul class="dropdown-menu">
-                                <li><a href="#" @click.prevent="select(permission)">Edit</a></li>
+                                <li><a href="#" @click.prevent="select(role)">Edit</a></li>
                                 <li role="separator" class="divider"></li>
-                                <li><a href="#" @click.prevent="destroy(permission.id)">Delete</a></li>
+                                <li><a href="#" @click.prevent="destroy(role.id)">Delete</a></li>
                             </ul>
                         </div>
                     </td>
@@ -33,53 +37,53 @@
             </table>
         </div>
 
-        <create-permission-modal :roles="roles"></create-permission-modal>
-        <edit-permission-modal :permission="selected"></edit-permission-modal>
+        <create-role-modal :permissions="permissions"></create-role-modal>
+        <edit-role-modal :role="selected" :permissions="permissions"></edit-role-modal>
     </div>
 </template>
 
 <script>
-    import CreatePermission from './create-permission.vue';
-    import EditPermission from './edit-permission.vue';
+    import CreateRole from './create-role.vue';
+    import EditRole from './edit-role.vue';
     export default {
         data() {
             return {
-                permissions: [],
                 roles: [],
+                permissions: [],
                 selected: {},
                 load: false
             };
         },
         components: {
-            'create-permission-modal': CreatePermission,
-            'edit-permission-modal': EditPermission
+            'create-role-modal': CreateRole,
+            'edit-role-modal': EditRole
         },
         created() {
-            bus.$on('refresh_permission_index', this.getPermissions);
-            this.getPermissions();
+            bus.$on('refresh_role_index', this.getRoles);
+            this.getRoles();
         },
         methods: {
-            getPermissions() {
+            getRoles() {
                 this.load = true;
-                axios.get('/api/home/admin/permissions/get').then((response) => {
+                axios.get('/api/home/admin/roles/get').then((response) => {
                     this.permissions = response.data.permissions;
                     this.roles = response.data.roles;
                     this.load = false;
                 }).catch((error) => {
                     swal(
                         'Oops',
-                        'Couldn\'t load the list of permissions',
+                        'Couldn\'t load the list of roles',
                         'error'
                     );
                     this.load = false;
                 })
             },
-            select(permission) {
-                $('#editPermissionModal').modal( 'show' );
-                this.selected = permission
+            select(role) {
+                this.selected = role;
+                $('#editRoleModal').modal( 'show' );
             },
             create() {
-                $('#createPermissionModal').modal( 'show' );
+                $('#createRoleModal').modal( 'show' );
             },
             destroy(id) {
                 swal({
@@ -92,18 +96,18 @@
                     confirmButtonText: 'Yes, delete it!'
                 }).then(() => {
                     this.load = true;
-                    axios.delete('/api/home/admin/permissions/delete/' + id).then(() => {
+                    axios.delete('/api/home/admin/roles/delete/' + id).then(() => {
                         swal(
                             'Deleted!',
-                            'Your permission has been deleted.',
+                            'Your role has been deleted.',
                             'success'
                         );
-                        bus.$emit('refresh_permission_index');
+                        bus.$emit('refresh_role_index');
                         this.load = false;
                     }).catch((error) => {
                         swal(
                             'Oops',
-                            'Couldn\'t delete Permission',
+                            'Couldn\'t delete Role',
                             'error'
                         );
                         this.load = false;

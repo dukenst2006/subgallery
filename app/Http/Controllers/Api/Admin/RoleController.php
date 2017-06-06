@@ -16,9 +16,12 @@ class RoleController extends Controller
      */
     public function index()
     {
-        $roles = Role::all();
+        $roles = Role::with('permissions')
+            ->get();
+        $permissions = Permission::all();
         return response()->json([
-            'roles' => $roles
+            'roles' => $roles,
+            'permissions' => $permissions
         ], 200);
     }
 
@@ -58,7 +61,7 @@ class RoleController extends Controller
 
         foreach ($permissions as $permission) {
             $p = Permission::where('id', $permission)->firstOrFail();
-            $role = Role::where('name', $name)->first();
+//            $role = Role::where('name', $name)->first();
             $role->givePermissionTo($p);
         }
     }

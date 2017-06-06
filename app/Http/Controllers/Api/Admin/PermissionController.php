@@ -46,7 +46,7 @@ class PermissionController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'name'=>'required|max:40|alpha_dash',
+            'name'=>'required|max:40',
         ]);
 
         $name = $request->name;
@@ -74,7 +74,7 @@ class PermissionController extends Controller
     {
         $permission = Permission::findOrFail($request->id);
         $this->validate($request, [
-            'name'=>'required|max:40|alpha_dash|unique:permissions',
+            'name'=>'required|max:40|unique:permissions',
         ]);
         $input = $request->all();
         $permission->fill($input)->save();

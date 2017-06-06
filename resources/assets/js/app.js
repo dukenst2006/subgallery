@@ -33,6 +33,8 @@ Vue.component('create-user', require('./components/admin/users/create-user.vue')
 
 Vue.component('index-permissions', require('./components/admin/permissions/index-permissions.vue'));
 
+Vue.component('index-roles', require('./components/admin/roles/index-roles.vue'));
+
 const app = new Vue({
     el: '#app'
 });
