@@ -14,11 +14,11 @@
 
                                 <div class="col-md-6">
                                     <input id="username" type="text" class="form-control" name="username" v-model="viewUser.username" @keydown="errors.clear('username')">
-                                </div>
 
-                                <span class="help-block" v-if="errors.has('username')">
-                                    <strong v-text="errors.get('username')"></strong>
-                                </span>
+                                    <span class="help-block" v-if="errors.has('username')">
+                                        <strong v-text="errors.get('username')"></strong>
+                                    </span>
+                                </div>
                             </div>
 
                             <div class="form-group" :class="{ 'has-error': errors.has('email') }">
@@ -26,11 +26,11 @@
 
                                 <div class="col-md-6">
                                     <input id="email" type="email" class="form-control" name="email" v-model="viewUser.email" @keydown="errors.clear('email')">
-                                </div>
 
-                                <span class="help-block" v-if="errors.has('email')">
-                                    <strong v-text="errors.get('email')"></strong>
-                                </span>
+                                    <span class="help-block" v-if="errors.has('email')">
+                                        <strong v-text="errors.get('email')"></strong>
+                                    </span>
+                                </div>
                             </div>
 
                             <div class="form-group">
@@ -82,7 +82,7 @@
 </template>
 
 <script>
-    import Errors from '../../classes/Errors';
+    import Errors from '../../../classes/Errors';
     export default {
         props: ['user'],
         data() {
@@ -109,7 +109,7 @@
                 }).then(() => {
                     this.load = false;
                     $('#viewUserModal').modal( 'hide' );
-                    eventBus.$emit('refresh_user_index');
+                    bus.$emit('update_user_index');
                 }).catch((error) => {
                     this.load = false;
                     this.errors.record(error.response.data);

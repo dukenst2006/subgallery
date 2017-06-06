@@ -17,8 +17,10 @@ class PermissionController extends Controller
     public function index()
     {
         $permissions = Permission::all();
+        $roles = Role::get();
         return response()->json([
-            'permissions' => $permissions
+            'permissions' => $permissions,
+            'roles' => $roles
         ], 200);
     }
 
@@ -52,15 +54,13 @@ class PermissionController extends Controller
         $permission->name = $name;
         $permission->save();
 
-        $roles = $request->roles;
+        $role = $request->role;
 
-        if (!empty($roles)) {
-            foreach ($roles as $role) {
-                $r = Role::where('id', $role)->firstOrFail();
+        if (!empty($role)) {
+            $r = Role::where('id', $role['id'])->firstOrFail();
 
-                $permission = Permission::where('name', $name)->first();
-                $r->givePermissionTo($permission);
-            }
+            $permission = Permission::where('name', $name)->first();
+            $r->givePermissionTo($permission);
         }
     }
 
@@ -70,11 +70,11 @@ class PermissionController extends Controller
      * @param Request $request
      * @param $id
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        $permission = Permission::findOrFail($id);
+        $permission = Permission::findOrFail($request->id);
         $this->validate($request, [
-            'name'=>'required|max:40|alpha_dash',
+            'name'=>'required|max:40|alpha_dash|unique:permissions',
         ]);
         $input = $request->all();
         $permission->fill($input)->save();

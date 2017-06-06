@@ -28,8 +28,10 @@ Vue.component('resume-subscription', require('./components/settings/subscription
 Vue.component('update-card-credentials', require('./components/settings/billing/update-card-credentials.vue'));
 Vue.component('invoices', require('./components/settings/billing/invoices.vue'));
 
-Vue.component('index-users', require('./components/admin/index-users.vue'));
-Vue.component('create-user', require('./components/admin/create-user.vue'));
+Vue.component('index-users', require('./components/admin/users/index-users.vue'));
+Vue.component('create-user', require('./components/admin/users/create-user.vue'));
+
+Vue.component('index-permissions', require('./components/admin/permissions/index-permissions.vue'));
 
 const app = new Vue({
     el: '#app'

@@ -51,5 +51,13 @@ Route::group(['prefix' => 'home'], function () {
             Route::get('view', 'Api\Admin\UserController@view');
             Route::post('update', 'Api\Admin\UserController@update');
         });
+
+        Route::group(['prefix' => 'permissions'], function () {
+            Route::get('get', 'Api\Admin\PermissionController@index');
+            Route::post('create', 'Api\Admin\PermissionController@store');
+            Route::get('view', 'Api\Admin\PermissionController@view');
+            Route::post('update', 'Api\Admin\PermissionController@update');
+            Route::delete('delete/{id}', 'Api\Admin\PermissionController@destroy');
+        });
     });
 });
