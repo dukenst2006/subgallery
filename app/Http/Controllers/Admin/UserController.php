@@ -15,8 +15,7 @@ class UserController extends Controller
 
     public function index()
     {
-        $roles = Role::all();
-        return view('admin.users.index', compact('roles'));
+        return view('admin.users.index');
     }
 
     // Create will be a vue component

@@ -8,7 +8,6 @@
         </div>
         <div class="col-md-9">
             <index-users></index-users>
-            <create-user :roles_index="{{ $roles }}"></create-user>
         </div>
     </div>
 </div>

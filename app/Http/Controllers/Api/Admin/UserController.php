@@ -18,8 +18,10 @@ class UserController extends Controller
     {
         $users = User::with('roles')
             ->get();
+        $roles = Role::get();
         return response()->json([
-            'users' => $users
+            'users' => $users,
+            'roles' => $roles
         ], 200);
     }
 
