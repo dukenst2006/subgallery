@@ -18086,8 +18086,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
             this.load = true;
             axios.post('/api/home/admin/roles/update', {
-                id: this.permission.id,
-                name: this.permission.name
+                id: this.role.id,
+                name: this.role.name,
+                permissions: this.checkedArray
             }).then(function () {
                 _this2.load = false;
                 $('#editRoleModal').modal('hide');
@@ -50156,7 +50157,9 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "panel panel-default"
   }, [_c('div', {
     staticClass: "panel-heading"
-  }, [_vm._v("Subscription Plan")]), _vm._v(" "), _c('div', {
+  }, [_vm._v("Subscription Plan "), (_vm.load) ? _c('i', {
+    staticClass: "fa fa-spinner fa-pulse fa-fw"
+  }) : _vm._e()]), _vm._v(" "), _c('div', {
     staticClass: "panel-body"
   }, [_c('form', {
     staticClass: "form-horizontal",
@@ -50171,9 +50174,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     attrs: {
       "for": "plan"
     }
-  }, [_vm._v("Membership Plans "), (_vm.load) ? _c('i', {
-    staticClass: "fa fa-spinner fa-pulse fa-fw"
-  }) : _vm._e()]), _vm._v(" "), _c('div', {
+  }, [_vm._v("Membership Plans")]), _vm._v(" "), _c('div', {
     staticClass: "col-md-6"
   }, [_c('select', {
     directives: [{
@@ -50182,6 +50183,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       value: (_vm.plan),
       expression: "plan"
     }],
+    staticClass: "form-control",
     attrs: {
       "name": "plan",
       "id": "plan"
@@ -51204,7 +51206,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     on: {
       "click": function($event) {
         $event.preventDefault();
-        _vm.create($event)
+        _vm.update($event)
       }
     }
   }, [_vm._v("\n                                    Update Role\n                                ")])])])])])])])])])
@@ -52055,7 +52057,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     attrs: {
       "id": "myModalLabel"
     }
-  }, [_vm._v("Create Permission "), (_vm.load) ? _c('i', {
+  }, [_vm._v("Create User "), (_vm.load) ? _c('i', {
     staticClass: "fa fa-spinner fa-pulse fa-fw"
   }) : _vm._e()])]), _vm._v(" "), _c('div', {
     staticClass: "modal-body"

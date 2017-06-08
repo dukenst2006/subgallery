@@ -35,7 +35,7 @@
 
                             <div class="form-group">
                                 <div class="col-md-6 col-md-offset-4">
-                                    <button type="submit" @click.prevent="create" class="btn btn-primary" :disabled="errors.any()">
+                                    <button type="submit" @click.prevent="update" class="btn btn-primary" :disabled="errors.any()">
                                         Update Role
                                     </button>
                                 </div>
@@ -73,8 +73,9 @@
             update() {
                 this.load = true;
                 axios.post('/api/home/admin/roles/update', {
-                    id: this.permission.id,
-                    name: this.permission.name
+                    id: this.role.id,
+                    name: this.role.name,
+                    permissions: this.checkedArray
                 }).then(() => {
                     this.load = false;
                     $('#editRoleModal').modal( 'hide' );
