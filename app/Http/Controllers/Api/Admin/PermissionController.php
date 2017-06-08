@@ -25,19 +25,6 @@ class PermissionController extends Controller
     }
 
     /**
-     * Return list of Roles
-     *
-     * @return \Illuminate\Http\JsonResponse
-     */
-    public function roles()
-    {
-        $roles = Role::get();
-        return response()->json([
-            'roles' => $roles
-        ], 200);
-    }
-
-    /**
      * Store created permission,
      * attach it to relevant roles
      *
@@ -68,7 +55,6 @@ class PermissionController extends Controller
      * Update selected Permission
      *
      * @param Request $request
-     * @param $id
      */
     public function update(Request $request)
     {

@@ -26,19 +26,6 @@ class UserController extends Controller
     }
 
     /**
-     * Return a list of Roles
-     *
-     * @return \Illuminate\Http\JsonResponse
-     */
-    public function roles()
-    {
-        $roles = Role::get();
-        return response()->json([
-            'roles' => $roles
-        ], 200);
-    }
-
-    /**
      * Store a new user on the database
      * TODO: Vue Pagination of users
      * TODO: Fire off email to created user with password

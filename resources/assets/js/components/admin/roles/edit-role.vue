@@ -21,15 +21,19 @@
                                 </div>
                             </div>
 
-                            <div class="form-group">
-                                <label for="role" class="col-md-4 control-label">Permissions</label>
+                            <div class="form-group" :class="{ 'has-error': errors.has('permissions') }">
+                                <label for="role" class="col-md-4 control-label">Select Permissions</label>
 
                                 <div class="col-md-6">
                                     <div class="checkbox" v-for="permission in permissions">
                                         <label>
-                                            <input type="checkbox" :value="permission.id" v-model="checkedArray"> {{ permission.name }}
+                                            <input type="checkbox" :id="permission.name" :value="permission.id" v-model="checkedArray" @click="errors.clear('permissions')"> {{ permission.name }}
                                         </label>
                                     </div>
+
+                                    <span class="help-block" v-if="errors.has('permissions')">
+                                        <strong v-text="errors.get('permissions')"></strong>
+                                    </span>
                                 </div>
                             </div>
 

@@ -13,14 +13,13 @@ class UserController extends Controller
         $this->middleware(['auth', 'isAdmin']);
     }
 
+    /**
+     * Display list of users
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function index()
     {
         return view('admin.users.index');
     }
-
-    // Create will be a vue component
-
-    // View will be a vue modal component
-
-    // Edit will be a vue component
 }

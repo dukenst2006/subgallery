@@ -17965,6 +17965,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -18006,6 +18011,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__classes_Errors__ = __webpack_require__(3);
+//
+//
+//
+//
 //
 //
 //
@@ -18247,6 +18256,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__classes_Errors__ = __webpack_require__(3);
+//
+//
+//
+//
 //
 //
 //
@@ -18830,10 +18843,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
 //
 //
 //
@@ -50318,13 +50327,13 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         _vm.old_password = $event.target.value
       }
     }
-  })]), _vm._v(" "), (_vm.errors.has('old_password')) ? _c('span', {
+  }), _vm._v(" "), (_vm.errors.has('old_password')) ? _c('span', {
     staticClass: "help-block"
   }, [_c('strong', {
     domProps: {
       "textContent": _vm._s(_vm.errors.get('old_password'))
     }
-  })]) : _vm._e()]), _vm._v(" "), _c('div', {
+  })]) : _vm._e()])]), _vm._v(" "), _c('div', {
     staticClass: "form-group",
     class: {
       'has-error': _vm.errors.has('password')
@@ -50363,13 +50372,13 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         _vm.password = $event.target.value
       }
     }
-  })]), _vm._v(" "), (_vm.errors.has('password')) ? _c('span', {
+  }), _vm._v(" "), (_vm.errors.has('password')) ? _c('span', {
     staticClass: "help-block"
   }, [_c('strong', {
     domProps: {
       "textContent": _vm._s(_vm.errors.get('password'))
     }
-  })]) : _vm._e()]), _vm._v(" "), _c('div', {
+  })]) : _vm._e()])]), _vm._v(" "), _c('div', {
     staticClass: "form-group",
     class: {
       'has-error': _vm.errors.has('password_confirmation')
@@ -50407,13 +50416,13 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         _vm.password_confirmation = $event.target.value
       }
     }
-  })]), _vm._v(" "), (_vm.errors.has('password_confirmation')) ? _c('span', {
+  }), _vm._v(" "), (_vm.errors.has('password_confirmation')) ? _c('span', {
     staticClass: "help-block"
   }, [_c('strong', {
     domProps: {
       "textContent": _vm._s(_vm.errors.get('password_confirmation'))
     }
-  })]) : _vm._e()]), _vm._v(" "), _c('div', {
+  })]) : _vm._e()])]), _vm._v(" "), _c('div', {
     staticClass: "form-group"
   }, [_c('div', {
     staticClass: "col-md-6 col-md-offset-4"
@@ -50732,13 +50741,13 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         _vm.username = $event.target.value
       }
     }
-  })]), _vm._v(" "), (_vm.errors.has('username')) ? _c('span', {
+  }), _vm._v(" "), (_vm.errors.has('username')) ? _c('span', {
     staticClass: "help-block"
   }, [_c('strong', {
     domProps: {
       "textContent": _vm._s(_vm.errors.get('username'))
     }
-  })]) : _vm._e()]), _vm._v(" "), _c('div', {
+  })]) : _vm._e()])]), _vm._v(" "), _c('div', {
     staticClass: "form-group",
     class: {
       'has-error': _vm.errors.has('email')
@@ -50776,13 +50785,13 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         _vm.email = $event.target.value
       }
     }
-  })]), _vm._v(" "), (_vm.errors.has('email')) ? _c('span', {
+  }), _vm._v(" "), (_vm.errors.has('email')) ? _c('span', {
     staticClass: "help-block"
   }, [_c('strong', {
     domProps: {
       "textContent": _vm._s(_vm.errors.get('email'))
     }
-  })]) : _vm._e()]), _vm._v(" "), _c('div', {
+  })]) : _vm._e()])]), _vm._v(" "), _c('div', {
     staticClass: "form-group",
     class: {
       'has-error': _vm.errors.has('password')
@@ -50820,13 +50829,13 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         _vm.password = $event.target.value
       }
     }
-  })]), _vm._v(" "), (_vm.errors.has('password')) ? _c('span', {
+  }), _vm._v(" "), (_vm.errors.has('password')) ? _c('span', {
     staticClass: "help-block"
   }, [_c('strong', {
     domProps: {
       "textContent": _vm._s(_vm.errors.get('password'))
     }
-  })]) : _vm._e()]), _vm._v(" "), _c('div', {
+  })]) : _vm._e()])]), _vm._v(" "), _c('div', {
     staticClass: "form-group"
   }, [_c('label', {
     staticClass: "col-md-4 control-label",
@@ -50877,6 +50886,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       value: (_vm.plan),
       expression: "plan"
     }],
+    staticClass: "form-control",
     attrs: {
       "name": "plan",
       "id": "plan"
@@ -51034,13 +51044,13 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         _vm.username = $event.target.value
       }
     }
-  })]), _vm._v(" "), (_vm.errors.has('username')) ? _c('span', {
+  }), _vm._v(" "), (_vm.errors.has('username')) ? _c('span', {
     staticClass: "help-block"
   }, [_c('strong', {
     domProps: {
       "textContent": _vm._s(_vm.errors.get('username'))
     }
-  })]) : _vm._e()]), _vm._v(" "), _c('div', {
+  })]) : _vm._e()])]), _vm._v(" "), _c('div', {
     staticClass: "form-group"
   }, [_c('div', {
     staticClass: "col-md-6 col-md-offset-4"
@@ -51149,15 +51159,18 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "textContent": _vm._s(_vm.errors.get('name'))
     }
   })]) : _vm._e()])]), _vm._v(" "), _c('div', {
-    staticClass: "form-group"
+    staticClass: "form-group",
+    class: {
+      'has-error': _vm.errors.has('permissions')
+    }
   }, [_c('label', {
     staticClass: "col-md-4 control-label",
     attrs: {
       "for": "role"
     }
-  }, [_vm._v("Permissions")]), _vm._v(" "), _c('div', {
+  }, [_vm._v("Select Permissions")]), _vm._v(" "), _c('div', {
     staticClass: "col-md-6"
-  }, _vm._l((_vm.permissions), function(permission) {
+  }, [_vm._l((_vm.permissions), function(permission) {
     return _c('div', {
       staticClass: "checkbox"
     }, [_c('label', [_c('input', {
@@ -51168,13 +51181,17 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         expression: "checkedArray"
       }],
       attrs: {
-        "type": "checkbox"
+        "type": "checkbox",
+        "id": permission.name
       },
       domProps: {
         "value": permission.id,
         "checked": Array.isArray(_vm.checkedArray) ? _vm._i(_vm.checkedArray, permission.id) > -1 : (_vm.checkedArray)
       },
       on: {
+        "click": function($event) {
+          _vm.errors.clear('permissions')
+        },
         "__c": function($event) {
           var $$a = _vm.checkedArray,
             $$el = $event.target,
@@ -51193,7 +51210,13 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         }
       }
     }), _vm._v(" " + _vm._s(permission.name) + "\n                                    ")])])
-  }))]), _vm._v(" "), _c('div', {
+  }), _vm._v(" "), (_vm.errors.has('permissions')) ? _c('span', {
+    staticClass: "help-block"
+  }, [_c('strong', {
+    domProps: {
+      "textContent": _vm._s(_vm.errors.get('permissions'))
+    }
+  })]) : _vm._e()], 2)]), _vm._v(" "), _c('div', {
     staticClass: "form-group"
   }, [_c('div', {
     staticClass: "col-md-6 col-md-offset-4"
@@ -51998,13 +52021,13 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         _vm.email = $event.target.value
       }
     }
-  })]), _vm._v(" "), (_vm.errors.has('email')) ? _c('span', {
+  }), _vm._v(" "), (_vm.errors.has('email')) ? _c('span', {
     staticClass: "help-block"
   }, [_c('strong', {
     domProps: {
       "textContent": _vm._s(_vm.errors.get('email'))
     }
-  })]) : _vm._e()]), _vm._v(" "), _c('div', {
+  })]) : _vm._e()])]), _vm._v(" "), _c('div', {
     staticClass: "form-group"
   }, [_c('div', {
     staticClass: "col-md-6 col-md-offset-4"
@@ -52157,7 +52180,10 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "textContent": _vm._s(_vm.errors.get('email'))
     }
   })]) : _vm._e()])]), _vm._v(" "), _c('div', {
-    staticClass: "form-group"
+    staticClass: "form-group",
+    class: {
+      'has-error': _vm.errors.has('roles')
+    }
   }, [_c('label', {
     staticClass: "col-md-4 control-label",
     attrs: {
@@ -52199,7 +52225,13 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         "value": role.id
       }
     }, [_vm._v("\n                                        " + _vm._s(role.name) + "\n                                    ")])
-  })], 2)])]), _vm._v(" "), _c('div', {
+  })], 2), _vm._v(" "), (_vm.errors.has('roles')) ? _c('span', {
+    staticClass: "help-block"
+  }, [_c('strong', {
+    domProps: {
+      "textContent": _vm._s(_vm.errors.get('roles'))
+    }
+  })]) : _vm._e()])]), _vm._v(" "), _c('div', {
     staticClass: "form-group"
   }, [_c('div', {
     staticClass: "col-md-6 col-md-offset-4"
@@ -52319,18 +52351,21 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "textContent": _vm._s(_vm.errors.get('name'))
     }
   })]) : _vm._e()])]), _vm._v(" "), _c('div', {
-    staticClass: "form-group"
+    staticClass: "form-group",
+    class: {
+      'has-error': _vm.errors.has('permissions')
+    }
   }, [_c('label', {
     staticClass: "col-md-4 control-label",
     attrs: {
       "for": "role"
     }
-  }, [_vm._v("Select Role")]), _vm._v(" "), _c('div', {
+  }, [_vm._v("Select Permissions")]), _vm._v(" "), _c('div', {
     staticClass: "col-md-6"
-  }, _vm._l((_vm.permissions), function(permission) {
+  }, [_vm._l((_vm.permissions), function(permission) {
     return _c('div', {
       staticClass: "checkbox"
-    }, [_c('input', {
+    }, [_c('label', [_c('input', {
       directives: [{
         name: "model",
         rawName: "v-model",
@@ -52346,6 +52381,9 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         "checked": Array.isArray(_vm.checkedArray) ? _vm._i(_vm.checkedArray, permission.id) > -1 : (_vm.checkedArray)
       },
       on: {
+        "click": function($event) {
+          _vm.errors.clear('permissions')
+        },
         "__c": function($event) {
           var $$a = _vm.checkedArray,
             $$el = $event.target,
@@ -52363,12 +52401,14 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
           }
         }
       }
-    }), _vm._v(" "), _c('label', {
-      attrs: {
-        "for": permission.name
-      }
-    }, [_vm._v(_vm._s(permission.name))])])
-  }))]), _vm._v(" "), _c('div', {
+    }), _vm._v(" " + _vm._s(permission.name) + "\n                                    ")])])
+  }), _vm._v(" "), (_vm.errors.has('permissions')) ? _c('span', {
+    staticClass: "help-block"
+  }, [_c('strong', {
+    domProps: {
+      "textContent": _vm._s(_vm.errors.get('permissions'))
+    }
+  })]) : _vm._e()], 2)]), _vm._v(" "), _c('div', {
     staticClass: "form-group"
   }, [_c('div', {
     staticClass: "col-md-6 col-md-offset-4"

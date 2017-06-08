@@ -26,19 +26,6 @@ class RoleController extends Controller
     }
 
     /**
-     * Return a list of Permissions
-     *
-     * @return \Illuminate\Http\JsonResponse
-     */
-    public function permissions()
-    {
-        $permissions = Permission::all();
-        return response()->json([
-            'permissions' => $permissions
-        ], 200);
-    }
-
-    /**
      * Store created Role,
      * attach relevant permissions to it
      *
@@ -61,7 +48,6 @@ class RoleController extends Controller
 
         foreach ($permissions as $permission) {
             $p = Permission::where('id', $permission)->firstOrFail();
-//            $role = Role::where('name', $name)->first();
             $role->givePermissionTo($p);
         }
     }
@@ -103,9 +89,6 @@ class RoleController extends Controller
     public function destroy(Request $request)
     {
         $role = Role::findOrFail($request->id);
-
-
-
         $role->delete();
     }
 }

@@ -12,17 +12,13 @@ class RoleController extends Controller
         $this->middleware(['auth', 'isAdmin']);
     }
 
+    /**
+     * Display list of roles
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function index()
     {
         return view('admin.roles.index');
     }
-
-    // Create will be a vue component
-
-    public function show()
-    {
-        return view('admin.roles.show');
-    }
-
-    // Edit will be a vue component
 }

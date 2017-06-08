@@ -2,10 +2,6 @@
     <div class="panel panel-default">
         <div class="panel-heading">Your Payment History <i v-if="load" class="fa fa-spinner fa-pulse fa-fw"></i></div>
 
-        <!--<div class="panel-body">-->
-            <!--This is where your payment history will go-->
-        <!--</div>-->
-
         <table class="table table-hover">
             <thead>
                 <tr>

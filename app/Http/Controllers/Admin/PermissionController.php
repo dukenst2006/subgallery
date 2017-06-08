@@ -12,17 +12,13 @@ class PermissionController extends Controller
         $this->middleware(['auth', 'isAdmin']);
     }
 
+    /**
+     * Display list of permissions
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function index()
     {
         return view('admin.permissions.index');
     }
-
-    // Create will be a vue component
-
-    public function show()
-    {
-        return view('admin.permissions.show');
-    }
-
-    // Edit will be a vue component
 }
