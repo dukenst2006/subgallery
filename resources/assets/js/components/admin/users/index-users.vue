@@ -40,6 +40,10 @@
                 </tbody>
             </table>
         </div>
+        <vue-pagination  :pagination="pagination"
+                         @click.native="getUsers(pagination.current_page)"
+                         :offset="4">
+        </vue-pagination>
 
         <create-user-modal :roles_index="roles"></create-user-modal>
         <view-user-modal :user="selected"></view-user-modal>
@@ -55,6 +59,15 @@
                 users: [],
                 roles: [],
                 selected: {},
+                counter: 0,
+                pagination: {
+                    total: 0,
+                    per_page: 2,
+                    from: 1,
+                    to: 0,
+                    current_page: 1
+                },
+                offset: 4,
                 load: false
             };
         },
@@ -69,8 +82,9 @@
         methods: {
             getUsers() {
                 this.load = true;
-                axios.get('/api/home/admin/users/get').then((response) => {
-                    this.users = response.data.users;
+                axios.get('/api/home/admin/users/get?page=' + this.pagination.current_page).then((response) => {
+                    this.users = response.data.users.data;
+                    this.pagination = response.data.users;
                     this.roles = response.data.roles;
                     this.load = false;
                 }).catch((error) => {

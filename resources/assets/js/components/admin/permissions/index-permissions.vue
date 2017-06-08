@@ -33,6 +33,11 @@
             </table>
         </div>
 
+        <vue-pagination  :pagination="pagination"
+                         @click.native="getUsers(pagination.current_page)"
+                         :offset="4">
+        </vue-pagination>
+
         <create-permission-modal :roles="roles"></create-permission-modal>
         <edit-permission-modal :permission="selected"></edit-permission-modal>
     </div>
@@ -47,6 +52,15 @@
                 permissions: [],
                 roles: [],
                 selected: {},
+                counter: 0,
+                pagination: {
+                    total: 0,
+                    per_page: 2,
+                    from: 1,
+                    to: 0,
+                    current_page: 1
+                },
+                offset: 4,
                 load: false
             };
         },
@@ -61,8 +75,9 @@
         methods: {
             getPermissions() {
                 this.load = true;
-                axios.get('/api/home/admin/permissions/get').then((response) => {
-                    this.permissions = response.data.permissions;
+                axios.get('/api/home/admin/permissions/get?page=' + this.pagination.current_page).then((response) => {
+                    this.permissions = response.data.permissions.data;
+                    this.pagination = response.data.permissions;
                     this.roles = response.data.roles;
                     this.load = false;
                 }).catch((error) => {
