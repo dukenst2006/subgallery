@@ -39,13 +39,6 @@ class User extends Authenticatable
         'trial_ends_at'
     ];
 
-//    /**
-//     * @return float
-//     */
-//    public function taxPercentage() {
-//        return 14.97;
-//    }
-
     public function getJsonInvoicesAttribute()
     {
         $invoices = $this->invoicesIncludingPending()->map(function($invoice) {
