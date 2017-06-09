@@ -10,11 +10,11 @@
 
                     <div class="col-md-6">
                         <input id="username" type="text" class="form-control" name="username" v-model="username" required autofocus @keydown="errors.clear('username')">
-                    </div>
 
-                    <span class="help-block" v-if="errors.has('username')">
-                        <strong v-text="errors.get('username')"></strong>
-                    </span>
+                        <span class="help-block" v-if="errors.has('username')">
+                            <strong v-text="errors.get('username')"></strong>
+                        </span>
+                    </div>
                 </div>
 
                 <div class="form-group" :class="{ 'has-error': errors.has('email') }">
@@ -22,11 +22,11 @@
 
                     <div class="col-md-6">
                         <input id="email" type="email" class="form-control" name="email" v-model="email" required @keydown="errors.clear('email')">
-                    </div>
 
-                    <span class="help-block" v-if="errors.has('email')">
-                        <strong v-text="errors.get('email')"></strong>
-                    </span>
+                        <span class="help-block" v-if="errors.has('email')">
+                            <strong v-text="errors.get('email')"></strong>
+                        </span>
+                    </div>
                 </div>
 
                 <div class="form-group" :class="{ 'has-error': errors.has('password') }">
@@ -34,11 +34,11 @@
 
                     <div class="col-md-6">
                         <input id="password" type="password" class="form-control" name="password" v-model="password" required @keydown="errors.clear('password')">
-                    </div>
 
-                    <span class="help-block" v-if="errors.has('password')">
-                        <strong v-text="errors.get('password')"></strong>
-                    </span>
+                        <span class="help-block" v-if="errors.has('password')">
+                            <strong v-text="errors.get('password')"></strong>
+                        </span>
+                    </div>
                 </div>
 
                 <div class="form-group">
@@ -53,7 +53,7 @@
                     <label for="plan" class="col-md-4 control-label">Membership Plan</label>
 
                     <div class="col-md-6">
-                        <select name="plan" id="plan" v-model="plan">
+                        <select name="plan" id="plan" v-model="plan" class="form-control">
                             <option disabled value="">Please select one</option>
                             <option v-for="plan in plans" :value="plan.id">
                                 {{ plan.name }}

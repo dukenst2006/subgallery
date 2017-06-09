@@ -9,11 +9,11 @@
 
                     <div class="col-md-6">
                         <input id="username" type="text" class="form-control" name="username" v-model="username" required autofocus @keydown="errors.clear('username')">
-                    </div>
 
-                    <span class="help-block" v-if="errors.has('username')">
-                        <strong v-text="errors.get('username')"></strong>
-                    </span>
+                        <span class="help-block" v-if="errors.has('username')">
+                            <strong v-text="errors.get('username')"></strong>
+                        </span>
+                    </div>
                 </div>
 
                 <div class="form-group">

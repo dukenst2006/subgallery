@@ -2,13 +2,15 @@
 
 namespace App;
 
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Laravel\Cashier\Billable;
+use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable
 {
-    use Notifiable, Billable;
+    use Notifiable, Billable, HasRoles, SoftDeletes;
 
     /**
      * The attributes that are mass assignable.
@@ -36,13 +38,6 @@ class User extends Authenticatable
     protected $dates = [
         'trial_ends_at'
     ];
-
-    /**
-     * @return float
-     */
-    public function taxPercentage() {
-        return 14.97;
-    }
 
     public function getJsonInvoicesAttribute()
     {

@@ -9,11 +9,11 @@
 
                     <div class="col-md-6">
                         <input id="old_password" type="password" class="form-control" name="old_password" v-model="old_password" required autofocus @keydown="errors.clear('old_password')">
-                    </div>
 
-                    <span class="help-block" v-if="errors.has('old_password')">
-                        <strong v-text="errors.get('old_password')"></strong>
-                    </span>
+                        <span class="help-block" v-if="errors.has('old_password')">
+                            <strong v-text="errors.get('old_password')"></strong>
+                        </span>
+                    </div>
                 </div>
 
                 <div class="form-group" :class="{ 'has-error': errors.has('password') }">
@@ -21,11 +21,11 @@
 
                     <div class="col-md-6">
                         <input id="password" type="password" class="form-control" name="password" v-model="password" required autofocus @keydown="errors.clear('password')">
-                    </div>
 
-                    <span class="help-block" v-if="errors.has('password')">
-                        <strong v-text="errors.get('password')"></strong>
-                    </span>
+                        <span class="help-block" v-if="errors.has('password')">
+                            <strong v-text="errors.get('password')"></strong>
+                        </span>
+                    </div>
                 </div>
 
                 <div class="form-group" :class="{ 'has-error': errors.has('password_confirmation') }">
@@ -33,11 +33,11 @@
 
                     <div class="col-md-6">
                         <input id="password-confirm" type="password" class="form-control" name="password_confirmation" v-model="password_confirmation" required @keydown="errors.clear('password_confirmation')">
-                    </div>
 
-                    <span class="help-block" v-if="errors.has('password_confirmation')">
-                        <strong v-text="errors.get('password_confirmation')"></strong>
-                    </span>
+                        <span class="help-block" v-if="errors.has('password_confirmation')">
+                            <strong v-text="errors.get('password_confirmation')"></strong>
+                        </span>
+                    </div>
                 </div>
 
                 <div class="form-group">

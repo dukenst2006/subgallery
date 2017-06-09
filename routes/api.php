@@ -42,3 +42,30 @@ Route::group(['prefix' => 'settings'], function () {
         Route::post('resume', 'Auth\UpdateSettingsController@resume');
     });
 });
+
+Route::group(['prefix' => 'home'], function () {
+    Route::group(['prefix' => 'admin'], function () {
+        Route::group(['prefix' => 'users'], function () {
+            Route::get('get', 'Api\Admin\UserController@index');
+            Route::post('create', 'Api\Admin\UserController@store');
+            Route::get('view', 'Api\Admin\UserController@view');
+            Route::post('update', 'Api\Admin\UserController@update');
+        });
+
+        Route::group(['prefix' => 'permissions'], function () {
+            Route::get('get', 'Api\Admin\PermissionController@index');
+            Route::post('create', 'Api\Admin\PermissionController@store');
+            Route::get('view', 'Api\Admin\PermissionController@view');
+            Route::post('update', 'Api\Admin\PermissionController@update');
+            Route::delete('delete/{id}', 'Api\Admin\PermissionController@destroy');
+        });
+
+        Route::group(['prefix' => 'roles'], function () {
+            Route::get('get', 'Api\Admin\RoleController@index');
+            Route::post('create', 'Api\Admin\RoleController@store');
+            Route::get('view', 'Api\Admin\RoleController@view');
+            Route::post('update', 'Api\Admin\RoleController@update');
+            Route::delete('delete/{id}', 'Api\Admin\RoleController@destroy');
+        });
+    });
+});

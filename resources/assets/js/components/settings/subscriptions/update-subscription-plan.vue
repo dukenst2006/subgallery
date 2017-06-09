@@ -1,13 +1,13 @@
 <template>
     <div class="panel panel-default">
-        <div class="panel-heading">Subscription Plan</div>
+        <div class="panel-heading">Subscription Plan <i v-if="load" class="fa fa-spinner fa-pulse fa-fw"></i></div>
         <div class="panel-body">
             <form class="form-horizontal" role="form" method="POST">
                 <div class="form-group">
-                    <label for="plan" class="col-md-4 control-label">Membership Plans <i v-if="load" class="fa fa-spinner fa-pulse fa-fw"></i></label>
+                    <label for="plan" class="col-md-4 control-label">Membership Plans</label>
 
                     <div class="col-md-6">
-                        <select name="plan" id="plan" v-model="plan">
+                        <select name="plan" id="plan" v-model="plan" class="form-control">
                             <option disabled value="">Please select one</option>
                             <option v-for="plan in plans" :value="plan.name">
                                 {{ plan.name }}

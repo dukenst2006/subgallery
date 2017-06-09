@@ -16,7 +16,10 @@ class Subscribed
      */
     public function handle($request, Closure $next)
     {
-        if ($request->user() && ! $request->user()->subscribed('primary')) {
+        if ($request->user()->hasRole('content-creator') ||
+            $request->user()->hasRole('admin')) {
+            return $next($request);
+        } elseif ($request->user() && ! $request->user()->subscribed('primary')) {
             // This user has signed up but membership has expired
             return redirect('settings/billing/card');
         }
