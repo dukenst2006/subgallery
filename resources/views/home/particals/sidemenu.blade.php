@@ -18,7 +18,7 @@
         </div>
     </div>
 
-    @role('admin')
+    @role('super-admin')
     <div class="panel panel-default">
         <div class="panel-heading">
             Admin
@@ -31,6 +31,7 @@
     </div>
     @endrole
 
+    @hasanyrole($roles)
     <div class="panel panel-default">
         <div class="panel-heading">
             Content
@@ -40,4 +41,5 @@
             <a href="{{ url('home/content/videos') }}" class="list-group-item {{ set_active('home/content/videos') }}">Videos</a>
         </div>
     </div>
+    @endhasanyrole
 </div>

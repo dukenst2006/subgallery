@@ -4,10 +4,10 @@
 <div class="container">
     <div class="row">
         <div class="col-md-3">
-            @include('admin.particals.sidemenu')
+            @include('home.particals.sidemenu')
         </div>
         <div class="col-md-9">
-            <index-roles></index-roles>
+            <index-users></index-users>
         </div>
     </div>
 </div>
